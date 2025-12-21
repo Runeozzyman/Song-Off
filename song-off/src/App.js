@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import App_Description from './components/App_Description';
 import BackgroundImage from './components/BackgroundImage';
+import Footer from './components/Footer';
 //import { BrowserRouter } from 'react-router-dom';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Home />
       </div>
 
+      <Footer/>
     </div>
 
   );

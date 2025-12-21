@@ -4,10 +4,11 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  margin: 64px auto;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   z-index: 0;
   pointer-events: none;
+  margin: 0;   /* remove this line if you have it */
 }
+
