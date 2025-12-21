@@ -14,6 +14,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
         <a href="" aria-label='GitHub'>
             <FaGithub size={25}/>
         </a>
+        
         <a href="" aria-label='LinkedIn'>
             <FaLinkedin size={25}/>
         </a>
