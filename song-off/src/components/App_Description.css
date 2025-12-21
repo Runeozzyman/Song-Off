@@ -1,0 +1,24 @@
+.App-Description-box{
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 15px 15px;
+  background-color: #222;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  background-color: white;
+  text-align: center;
+}
+
+.App-Description-box h2 {
+    font-size: 40px;
+    color: #000000;
+    
+}
+
+.App-Description-box p {
+    font-size: 23px;
+    color: #333333;
+    line-height: 1.5;
+    margin-top: 10px;
+}
