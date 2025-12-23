@@ -11,11 +11,11 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
         </div>
 
         <div className='footer-right'>
-        <a href="" aria-label='GitHub'>
+        <a href="https://github.com/Runeozzyman" aria-label='GitHub'>
             <FaGithub size={25}/>
         </a>
         
-        <a href="" aria-label='LinkedIn'>
+        <a href="https://www.linkedin.com/in/austinwort/" aria-label='LinkedIn'>
             <FaLinkedin size={25}/>
         </a>
         </div>
