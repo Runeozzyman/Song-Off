@@ -1,4 +1,7 @@
+import React from 'react';
+import {Link } from 'react-router-dom';
 import './Home.css';
+
 
   const Home = () =>  {
 
@@ -10,7 +13,9 @@ import './Home.css';
     <div className="input-row">
       <h3 className="Display-input">Choose a display name to get started:</h3>
       <input className="display-name" placeholder="Enter Display Name" />
+      <Link to="/start">
       <button className="submit-btn">Submit</button>
+      </Link>
     </div>
   </div>
 </div>
