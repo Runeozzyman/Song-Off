@@ -1,6 +1,6 @@
 import React from 'react';
+import Room_Navigation from '../components/Room_Navigation.js'
 import { useState, useEffect } from 'react';
-
 
   const Start = () =>  {
   
@@ -15,9 +15,10 @@ import { useState, useEffect } from 'react';
 
     return user
   }
-  
+
   const [username, setUsername] = useState("");
 
+  //Pulling username from session storage, or generating if none exists
   useEffect(() => {
 
     const storedUsername = sessionStorage.getItem("username");
@@ -31,10 +32,12 @@ import { useState, useEffect } from 'react';
     }
 
   }, []);
-    
+  
+  
 	return (
-	  <div>
+	  <div className='room-navigation'>
         <h1>Start Page: Hello {username}</h1>
+        <Room_Navigation />
 	  </div>
 	);
   }

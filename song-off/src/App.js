@@ -6,6 +6,8 @@ import BackgroundImage from './components/BackgroundImage';
 import Footer from './components/Footer';
 import Start from './pages/Start';
 import Landing from './pages/Landing';
+import New_Room from './pages/New_Room';
+import Existing_Room from './pages/Existing_Room'; 
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 
@@ -16,6 +18,7 @@ function App() {
     <Header />
     <BackgroundImage />
 
+    
     <div className="Boxes-wrapper">
       <Routes>
 
@@ -23,10 +26,15 @@ function App() {
 
         <Route path="start" element = {<Start />}></Route>
 
-        
-
       </Routes>
     </div>
+
+    <Routes>
+        <Route path = "/new-room" element={<New_Room/>}></Route>
+      <Route path = "/existing-room" element={<Existing_Room/>}></Route>
+
+
+    </Routes>
 
     <Footer />
   </div>
