@@ -1,24 +1,33 @@
 import React from 'react';
 import {Link } from 'react-router-dom';
 import './component-css/Home.css';
+import { SlControlPlay } from "react-icons/sl";
 
 
   const Home = () =>  {
 
-	return (
-	 <div className="Home-box">
-  <div className="Content-box">
-    <h2 className="Description-title">Think you've got good Taste? Prove it.</h2>
+  const [username, setUsername] = React.useState("");
 
-    <div className="input-row">
-      <h3 className="Display-input">Choose a display name to get started:</h3>
-      <input className="display-name" placeholder="Enter Display Name" />
-      <Link to="/start">
-      <button className="submit-btn">Submit</button>
-      </Link>
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  }
+
+	return (
+
+	<div className="Home-box">
+
+    <div className="Content-box">
+      
+      
+      <h2 className="Description-title">Think you've got good Taste? Prove it.
+        <Link to = "/start">
+        <button className = "play-button"><SlControlPlay  size={30}/></button>
+        </Link>
+      </h2>
+      
     </div>
+
   </div>
-</div>
 
 
 

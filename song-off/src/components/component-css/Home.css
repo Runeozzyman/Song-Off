@@ -20,43 +20,15 @@
     font-weight: bold;
 }
 
-.input-row {
-  display: flex;
+.play-button{
   align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
+  background-color: white;
+  margin-left: 40px;
+  border : none;
+  
 }
 
-.Display-input {
-  font-size: 23px;
-  margin: 0;
-  white-space: nowrap;
-}
-
-.display-name {
-  font-size: 18px;
-  padding: 6px 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  width: 200px;
-  flex-shrink: 0;
-}
-
-.submit-btn {
-  background-color: #20ae07cc;
-  border: none;
-  padding: 10px 25px;
-  border-radius: 8px;
-  color: #121212;
-  font-weight: 700;
-  font-size: 18px;
+.play-button:hover{
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  flex-shrink: 0;
+  color: #1DB954;
 }
-
-.submit-btn:hover {
-  background-color: #20ae07cc;
-}
-
-
