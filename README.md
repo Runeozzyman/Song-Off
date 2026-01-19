@@ -14,9 +14,16 @@ Backend: TODO
 
 # What I've learned so far
 
--setting up a proper react project structure (components, pages, assets)
+-how to set up a proper react project structure (components, pages, assets)
 
--constructing pages by rendering individual modular components within them respectively
-    - this keeps components modular and reusable, while not complicating App.js
+-how to construct pages by rendering individual modular components within them respectively
+    - this keeps components modular and reusable, while not complicating App.js and keeping in line with a SPA
 
--implementing react-router-dom as BrowserRouter and using routes to setup a single page application (SPA)
+-how to implement react-router-dom as BrowserRouter and using routes and links for navigation
+
+-how to implement the outlet component from react-router-dom for navigating child routes
+    -implementing child routes within a layout file
+
+
+
+
