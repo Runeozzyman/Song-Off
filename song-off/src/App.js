@@ -8,6 +8,7 @@ import Start from './pages/Start';
 import Landing from './pages/Landing';
 import New_Room from './pages/New_Room';
 import Existing_Room from './pages/Existing_Room'; 
+import Boxes_Layout from './layouts/Boxes_Layout';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 
@@ -18,24 +19,18 @@ function App() {
     <Header />
     <BackgroundImage />
 
-    
-    <div className="Boxes-wrapper">
       <Routes>
 
-        <Route path="/" element={<Landing />}></Route>
+          <Route element={<Boxes_Layout />}>
+            <Route path="/" element={<Landing />}></Route>
+            <Route path="start" element = {<Start />}></Route>
+          </Route>
 
-        <Route path="start" element = {<Start />}></Route>
+          <Route path = "/new-room" element={<New_Room/>}></Route>
+          <Route path = "/existing-room" element={<Existing_Room/>}></Route>
 
       </Routes>
-    </div>
-
-    <Routes>
-        <Route path = "/new-room" element={<New_Room/>}></Route>
-      <Route path = "/existing-room" element={<Existing_Room/>}></Route>
-
-
-    </Routes>
-
+  
     <Footer />
   </div>
 </BrowserRouter>
