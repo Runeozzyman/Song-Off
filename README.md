@@ -14,15 +14,15 @@ Backend: TODO
 
 # What I've learned so far
 
--how to set up a proper react project structure (components, pages, assets)
+1. how to set up a proper react project structure (components, pages, assets)
 
--how to construct pages by rendering individual modular components within them respectively
-    - this keeps components modular and reusable, while not complicating App.js and keeping in line with a SPA
+2.how to construct pages by rendering individual modular components within them respectively
+    this keeps components modular and reusable, while not complicating App.js and keeping in line with a SPA
 
--how to implement react-router-dom as BrowserRouter and using routes and links for navigation
+3.how to implement react-router-dom as BrowserRouter and using routes and links for navigation
 
--how to implement the outlet component from react-router-dom for navigating child routes
-    -implementing child routes within a layout file
+4.how to implement the outlet component from react-router-dom for navigating child routes
+    implementing child routes within a layout file
 
 
 
