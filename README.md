@@ -12,17 +12,22 @@ Frontend: React, CSS
 
 Backend: TODO
 
-# What I've learned so far
+## What I’ve Learned So Far
 
-1. how to set up a proper react project structure (components, pages, assets)
+1. **Setting up a proper React project structure**
+   - Organizing files into `components`, `pages`, and `assets`.
 
-2.how to construct pages by rendering individual modular components within them respectively
-    -this keeps components modular and reusable, while not complicating App.js and keeping in line with a SPA
+2. **Constructing pages using modular components**
+   - Pages are composed of reusable components.
+   - This keeps components modular while preventing `App.js` from becoming cluttered.
+   - Follows single-page application (SPA) best practices.
 
-3.how to implement react-router-dom as BrowserRouter and using routes and links for navigation
+3. **Implementing client-side routing with `react-router-dom`**
+   - Using `BrowserRouter`, `Routes`, `Route`, and `Link` for navigation.
 
-4.how to implement the outlet component from react-router-dom for navigating child routes
-    -implementing child routes within a layout file
+4. **Using layouts and the `Outlet` component**
+   - Implementing child routes within a layout component.
+   - Applying layout-specific structure and styling to groups of routes.
 
 
 
