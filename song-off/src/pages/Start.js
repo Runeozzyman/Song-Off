@@ -36,7 +36,7 @@ import { useState, useEffect } from 'react';
   
 	return (
 	  <div className='room-navigation'>
-        <h1 style={{color: "#fff702cc", textAlign: "center"}}>Hello, {username}</h1>
+        <h1 style={{color: "#fff702cc", textAlign: "center" , fontWeight: "200"}}>Hello, {username}</h1>
         <Room_Navigation />
 	  </div>
 	);

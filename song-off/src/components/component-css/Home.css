@@ -9,26 +9,29 @@
   max-width: 700px; 
   width: 100%;      
   margin: 0 auto;   
-  background-color: #ffffff;
+  background-color: #fffee6cc;
   padding-left: 15px;
   padding-right: 15px;
   border-radius: 15px;
+  margin-top: 10px;
+  
 }
 
 .Description-title{
     font-size: 40px;
     font-weight: bold;
+    font-weight: 200;
 }
 
 .play-button{
   align-items: center;
-  background-color: white;
+  background-color: #fffee6cc;
   margin-left: 40px;
   border : none;
-  
+  background: transparent
 }
 
 .play-button:hover{
   cursor: pointer;
-  color: #1DB954;
+  color: #fff8e6cc;
 }

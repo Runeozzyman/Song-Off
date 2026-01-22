@@ -3,12 +3,14 @@
     flex-direction: column;
     gap: 25px;
     margin-top: 50%;
-    background-color: white;
+    background-color: #fffee6cc;
     padding: 25px;
     border-radius: 10px;
 }
 
-
+.button-group h1{
+    font-weight: 200;
+}
 
 /*----------------------create btn---------------------*/
 
