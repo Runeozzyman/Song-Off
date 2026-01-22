@@ -12,7 +12,7 @@ import { useNavigate }	from 'react-router-dom';
 
 	//asserts roomcode has been entered || TODO: add backend logic to verify with DB that room exists
 	function queryRoomCode(){
-		const roomCode = document.querySelector('.room-code-input').value;
+		const roomCode = document.getElementById("roomCode").value.trim();
 
 		if(roomCode == null || roomCode == ""){
 			alert("Please enter a room code to join a room.");
@@ -27,12 +27,15 @@ import { useNavigate }	from 'react-router-dom';
 	return (
 	  <div className = "button-group">
 
+		<h1>Create a new room or join an existing room</h1>
+
 		<Link to ='/new-room' className = "nav-button create-button">
 		<span>Create Room</span>
 		</Link>
 
-		<input type="text" placeholder = "Room Code" className = "room-code-input"></input>
+
 		<button className="nav-button join-button" onClick={queryRoomCode}><span>Join Room</span></button>
+		<input type="text" placeholder = "Room Code" className = "room-code-input" id="roomCode"></input>
 		
 	  </div>
 	);
