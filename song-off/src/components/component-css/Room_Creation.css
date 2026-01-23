@@ -1,0 +1,25 @@
+.new-room-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    min-width:fit-content;
+    max-width: 20%;
+    margin: auto;
+    margin-top: 300px;
+
+    background-color: #fffee6cc;
+    border-radius: 15px;
+}
+
+.new-room-info h1{
+    font-weight: 200;
+}
+
+.new-room-info input{
+    border-radius: 10px;
+    border-color: transparent;
+    padding: 5px;
+    width: 200px;
+}

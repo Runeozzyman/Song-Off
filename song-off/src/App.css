@@ -13,7 +13,7 @@ body {
 
 
 .Boxes-wrapper {
-  flex: 1 0 auto; /* allows this to grow and take available space */
+  flex: 1 0 auto;
   max-width: 700px;
   margin: 10px auto;
   padding: 0 20px;
@@ -21,6 +21,10 @@ body {
   flex-direction: column;
   gap: 40px;
   position: relative;
+  z-index: 1;
+}
+
+*:not(.bg-img){
   z-index: 1;
 }
 

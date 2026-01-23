@@ -17,15 +17,15 @@ function App() {
 <BrowserRouter>
   <div className="AppRoot">
     <Header />
-    <BackgroundImage />
+    <div className = "bg-img"><BackgroundImage /></div>
 
       <Routes>
 
           <Route element={<Boxes_Layout />}>
             <Route path="/" element={<Landing />}></Route>
             <Route path="start" element = {<Start />}></Route>
+            
           </Route>
-
           <Route path = "/new-room" element={<New_Room/>}></Route>
           <Route path = "/existing-room" element={<Existing_Room/>}></Route>
 

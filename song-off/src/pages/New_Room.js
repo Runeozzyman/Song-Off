@@ -1,10 +1,14 @@
 import React from 'react';
-  
+import Room_creation from '../components/Room_Creation.js'
+
+
   const New_Room = () =>  {
 	return (
-	  <div>
-        <h3>new Room</h3>
-	  </div>
+	  <div className>
+
+     <Room_creation/>
+	  
+    </div>
 	);
   }
   
