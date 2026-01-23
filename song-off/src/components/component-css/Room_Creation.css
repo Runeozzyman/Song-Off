@@ -23,3 +23,16 @@
     padding: 5px;
     width: 200px;
 }
+
+
+.new-room-info button{
+    margin: 20px auto 0; /*NOTE:    margin: top left/right bottom    (shorthand margin syntax)*/
+    padding: 5px;
+    border-radius: 8px;
+    border-color: transparent;
+    display: block;
+}
+
+.new-room-info button:hover{
+    background-color: #acacac;
+}
