@@ -19,7 +19,7 @@ import { useState, useEffect } from 'react';
     return user
   }
 
-  //Pulling username from session storage, or generating if none exists
+  //pulling username from session storage, or generating if none exists
   useEffect(() => {
 
     const storedUsername = sessionStorage.getItem("username");
