@@ -4,6 +4,9 @@ import { useState, useEffect } from 'react';
 
   const Start = () =>  {
   
+  const [username, setUsername] = useState(""); //reminder: useState argument is for setting defaul val
+
+  //self explanatory...
   function generateRandomUsername(){
     const adjectives = ["Swift", "Mellow", "Funky", "Groovy", "Chill", "Vibrant", "Lively", "Smooth"];
     const nouns = ["Beats", "Rhythms", "Tunes", "Melodies", "Harmonies", "Vibes", "Chords", "Notes"];
@@ -15,8 +18,6 @@ import { useState, useEffect } from 'react';
 
     return user
   }
-
-  const [username, setUsername] = useState("");
 
   //Pulling username from session storage, or generating if none exists
   useEffect(() => {
