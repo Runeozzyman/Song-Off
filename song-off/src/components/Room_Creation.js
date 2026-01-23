@@ -7,27 +7,45 @@ import './component-css/Room_Creation.css'
 
     const navigate = useNavigate();
     
-    const [roomName, setRoomName] = useState('');
+    const [roomName, setRoomName] = useState('New Room');
     const [players, setPlayers] = useState(2);
     const [rounds, setRounds] = useState(3);
+    const [status, setStatus] = useState('idle');
+    const [error, setError] = useState(null);
 
-    function parseRoomInfo(){
+
+    //what exactly is an async function??
+    async function handleSubmit(e){
     
-      const numPlayers = Number(players);
-      const numRounds = Number(rounds);
-      
-      console.log(numPlayers);
-      console.log(numRounds);
+      e.preventDefault();
+      setStatus('submitting');
 
-      if (numPlayers > 4 || numPlayers < 2){
-        alert("Number of players must be between 2 and 4");
-        return;
+      try{
+        await(checkRoomInfo);
+        setStatus('created');
+        navigate('created-room');
       }
 
-      if (numRounds > 10 || numRounds < 3){
-        alert("Number of rounds must be between 3 and 10");
-        return;
+      catch (err) {
+        setStatus('failed');
+        setError(err);
       }
+
+    }
+
+    function checkRoomInfo(players, rounds){
+
+      setTimeout(() => {
+
+        if(players > 4 || players < 2){
+          throw new Error('Players must be between 2 and 4');
+        }
+
+        if(rounds > 10 || rounds < 2){
+          throw new Error('Number of rounds must be between 2 and 10');
+        }
+
+    }, 1500); 
 
     }
 
@@ -37,6 +55,7 @@ import './component-css/Room_Creation.css'
 	return (
 	  <div className = "new-room-info">
         
+      <form onSubmit={handleSubmit}>
         <h1>New Room</h1>
         <input 
           type = "text" 
@@ -63,8 +82,11 @@ import './component-css/Room_Creation.css'
           value = {rounds}
           onChange = {(e) => setRounds(e.targetValue)}
         />
+        <br></br>
 
-        <button onClick = {parseRoomInfo}>Create Room</button>
+        <button>Create Room</button>
+      
+      </form>
 
 	  </div>
 	);
