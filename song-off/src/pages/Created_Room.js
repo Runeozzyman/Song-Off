@@ -3,9 +3,12 @@ import { useLocation } from 'react-router-dom';
   
   const Created_Room = () =>  {
     console.log("this is the new room");
+
+    const location = useLocation();
+
 	return (
 	  <div>
-        hiiiii
+        Newly created room
 	  </div>
 	);
   }
