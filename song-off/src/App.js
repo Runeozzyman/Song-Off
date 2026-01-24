@@ -1,16 +1,11 @@
 import './App.css';
 import Header from './components/Header';
-import Home from './components/Home';
-import App_Description from './components/App_Description';
 import BackgroundImage from './components/BackgroundImage';
 import Footer from './components/Footer';
-import Start from './pages/Start';
-import Landing from './pages/Landing';
-import New_Room from './pages/New_Room';
-import Existing_Room from './pages/Existing_Room'; 
-import Boxes_Layout from './layouts/Boxes_Layout';
-import Created_Room from './pages/Created_Room';
+import App_Routes from './routes/App_Routes';
+
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
+
 
 
 function App() {
@@ -20,18 +15,7 @@ function App() {
     <Header />
     <div className = "bg-img"><BackgroundImage /></div>
 
-      <Routes>
-
-          <Route element={<Boxes_Layout />}>
-            <Route path="/" element={<Landing />}></Route>
-            <Route path="start" element = {<Start />}></Route>
-          </Route>
-
-          <Route path = "/new-room" element={<New_Room/>}></Route>
-          <Route path = "/existing-room" element={<Existing_Room/>}></Route>
-          <Route path = "/new-room/created-room" element={<Created_Room/>}></Route>
-
-      </Routes>
+      <App_Routes />
   
     <Footer />
   </div>
