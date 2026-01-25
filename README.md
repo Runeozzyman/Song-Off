@@ -10,12 +10,12 @@ Frontend: React, CSS
     - react-router-dom
     - react-icons
 
-Backend: TODO
+Backend: Node.js / Express
 
 ## What I’ve Learned So Far
 
 1. **Setting up a proper React project structure**
-   - Organizing files into `components`, `pages`, and `assets`.
+   - Organizing files into `components`, `pages`, `layouts`, and `assets`.
 
 2. **Constructing pages using modular components**
    - Pages are composed of reusable components.
@@ -28,6 +28,10 @@ Backend: TODO
 4. **Using layouts and the `Outlet` component**
    - Implementing child routes within a layout component.
    - Applying layout-specific structure and styling to groups of routes.
+  
+5. **Using Declarative design rather than Imperative**
+   - Using declarative design helps to abstract away low-level DOM manipulation
+
 
 
 
