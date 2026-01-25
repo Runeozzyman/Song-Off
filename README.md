@@ -6,11 +6,11 @@
 
 # Tech Stack
 
-Frontend: React, CSS
+**Frontend**: React, CSS
     - react-router-dom
     - react-icons
 
-Backend: Node.js / Express
+**Backend**: Node.js / Express
 
 ## What I’ve Learned So Far
 
