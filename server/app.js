@@ -1,23 +1,23 @@
+import "dotenv/config";
 import express from 'express';
 import cors from 'cors';
-import dotenv from 'dotenv';
+import gemini_api from "./routes/gemini_api.js";
 
 const router = express.Router();
 const app = express();
 const PORT = 4000;
-
 app.use(cors());
 app.use(express.json());
+
+
+
+app.use("/api/evaluate", gemini_api);
+
 
 app.get('/' , (req, res) =>{
     res.json('root port')
 });
+ 
+app.listen(PORT);
 
-app.get('/testAPI' , (req, res) => {
-    res.json({message: 'backend worky'});
-});
-
-
-app.listen(PORT, () => {
-    console.log("server is running");
-});
+export default app;
