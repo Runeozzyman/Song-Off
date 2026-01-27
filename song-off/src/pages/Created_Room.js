@@ -10,39 +10,40 @@ import {useState} from 'react'
     const [answerB, setAnswerB] = useState('');
     const [theme, setTheme] = useState('');
     const [result, setResult] = useState(null);
-    const [loading, setLoading] = useState(false);
+    const [status, setStatus] = useState('idle');
 
    async function handleSubmit(e) {
-  e.preventDefault();
-  setLoading(true);
+    e.preventDefault();
+    setStatus('thinking');
 
-  try {
-    console.log({answerA, answerB, theme});
-    const res = await fetch(
-      "http://localhost:4000/api/evaluate/compare",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          answerA,
-          answerB,
-          theme
-        })
-      }
-    );
+    try {
+      console.log({answerA, answerB, theme});
+      
+      const res = await fetch(
+        "http://localhost:4000/api/evaluate/compare",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            answerA,
+            answerB,
+            theme
+          })
+        }
+      );
 
-    const data = await res.json();
-    console.log(data);
-    setResult(data);
+      const data = await res.json();
+      console.log(data);
+      setResult(data.winner);
 
-  } catch (err) {
-    console.error("error in backend", err);
-  } finally {
-    setLoading(false);
+    } catch (err) {
+      console.error("error in backend", err);
+    } finally {
+      setStatus('idle');
+    }
   }
-}
 
 
 	return (
@@ -70,8 +71,15 @@ import {useState} from 'react'
         />
         <br></br>
         <button type="submit">Submit</button>
+
       </form>
-        
+
+      {result && (
+          <h2>
+            Winner: <span style={{ color: "green" }}>{result}</span>
+          </h2>
+        )}
+  
 	  </div>
 	);
   
