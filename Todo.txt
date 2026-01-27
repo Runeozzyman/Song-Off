@@ -1,0 +1,4 @@
+Last accomplished: implemented the /compare route in gemini_api.js -> takes input from the created_room page, 
+                   sends it to endpoint, and displays result
+
+Todo Next: begin creating room logic so rooms can be created and joined (with room code)
