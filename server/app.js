@@ -10,8 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 
-
-app.use("/api/evaluate", gemini_api);
+app.use("/api/evaluate", gemini_api); //mapping gemini_api to this parent route
 
 
 app.get('/' , (req, res) =>{

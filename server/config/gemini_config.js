@@ -5,3 +5,5 @@ if(!process.env.GEMINI_API_KEY){
 }
 
 export const ai = new GoogleGenAI(process.env.GEMINI_API_KEY);
+
+console.log("Gemini API key parsed");
