@@ -1,6 +1,7 @@
 import { useLocation, useParams } from 'react-router-dom';
 
 const Lobby = () => {
+    
   const location = useLocation();
   const { roomCode } = useParams();
 
