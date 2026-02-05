@@ -7,7 +7,7 @@ import './component-css/Room_Creation.css'
 
     const navigate = useNavigate();
     
-    const [roomName, setRoomName] = useState('New Room');
+    const [roomName, setRoomName] = useState('');
     const [players, setPlayers] = useState(2);
     const [rounds, setRounds] = useState(3);
     const [status, setStatus] = useState('idle');
@@ -20,8 +20,14 @@ import './component-css/Room_Creation.css'
       e.preventDefault();
       setStatus('submitting');
 
+      const error = checkRoomInfo(players, rounds, roomName);
+
+      if(error){
+        alert(error);
+        return;
+      }
+
       try{
-        await(checkRoomInfo);
         setStatus('created');
         navigate('created-room');
       }
@@ -33,20 +39,20 @@ import './component-css/Room_Creation.css'
 
     }
 
-    function checkRoomInfo(players, rounds){
-
-      setTimeout(() => {
-
-        if(players > 4 || players < 2){
-          throw new Error('Players must be between 2 and 4');
+    function checkRoomInfo(players, rounds, roomName) {
+        if (!roomName || roomName.length === 0) {
+          return 'Please enter a room name';
         }
 
-        if(rounds > 10 || rounds < 2){
-          throw new Error('Number of rounds must be between 2 and 10');
+        if (players > 4 || players < 2) {
+          return 'Players must be between 2 and 4';
         }
 
-    }, 1500); 
+        if (rounds > 10 || rounds < 2) {
+          return 'Number of rounds must be between 2 and 10';
+        }
 
+        return null;
     }
 
 
@@ -56,12 +62,12 @@ import './component-css/Room_Creation.css'
 	  <div className = "new-room-info">
         
       <form onSubmit={handleSubmit}>
-        <h1>New Room</h1>
+        <h1>Room Name</h1>
         <input 
           type = "text" 
           placeholder = "Room Name" 
           value = {roomName}
-          onChange = {(e) => setRoomName(e.targetValue)}
+          onChange = {(e) => setRoomName(e.target.value)}
         />
 
         <h1>Number of Players</h1>
@@ -70,7 +76,7 @@ import './component-css/Room_Creation.css'
           max = {4} 
           placeholder='2' 
           value = {players}
-          onChange={(e) => setPlayers(e.targetValue)}
+          onChange={(e) => setPlayers(e.target.value)}
          />
 
         <h1>Number of Rounds</h1>
@@ -80,7 +86,7 @@ import './component-css/Room_Creation.css'
           max = {10} 
           placeholder='1' 
           value = {rounds}
-          onChange = {(e) => setRounds(e.targetValue)}
+          onChange = {(e) => setRounds(e.target.value)}
         />
         <br></br>
 
