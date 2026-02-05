@@ -14,6 +14,10 @@ import './component-css/Room_Creation.css'
     const [error, setError] = useState(null);
 
 
+    function generateRoomCode(length=6){
+      return Math.random().toString(36).substring(2, length + 2);
+    }
+
     //what exactly is an async function??
     async function handleSubmit(e){
     
@@ -21,6 +25,7 @@ import './component-css/Room_Creation.css'
       setStatus('submitting');
 
       const error = checkRoomInfo(players, rounds, roomName);
+      const roomCode = generateRoomCode();
 
       if(error){
         alert(error);
@@ -29,7 +34,9 @@ import './component-css/Room_Creation.css'
 
       try{
         setStatus('created');
-        navigate('created-room');
+        navigate(`/lobby/${roomCode}`, {
+        state: { roomName }
+      });
       }
 
       catch (err) {
