@@ -18,7 +18,6 @@ import './component-css/Room_Creation.css'
       return Math.random().toString(36).substring(2, length + 2);
     }
 
-    //what exactly is an async function??
     async function handleSubmit(e){
     
       e.preventDefault();
