@@ -1,6 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
 import {useNavigate} from 'react-router-dom'
+import { createRoom } from '../services/roomService';
 import './component-css/Room_Creation.css'
 
   const Room_creation = () =>  {
@@ -32,6 +33,7 @@ import './component-css/Room_Creation.css'
       }
 
       try{
+        await createRoom(roomCode, roomName, players, rounds);
         setStatus('created');
         navigate(`/lobby/${roomCode}`, {
         state: { roomName }
