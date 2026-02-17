@@ -5,6 +5,19 @@ import { useState, useEffect } from 'react';
   const Start = () =>  {
   
   const [username, setUsername] = useState(""); //reminder: useState argument is for setting defaul val
+  const [userID, setUserID] = useState(null);
+
+  function getUserID(){
+    let userID = sessionStorage.getItem("user_id");
+
+    if(!userID){
+      userID = crypto.randomUUID();
+      sessionStorage.setItem("user_id", userID);
+    }
+
+    console.log("userID: " + userID);
+    return userID;
+  }
 
   //self explanatory...
   function generateRandomUsername(){
@@ -31,6 +44,9 @@ import { useState, useEffect } from 'react';
       sessionStorage.setItem("username", newUsername);
       setUsername(newUsername);
     }
+
+   const id = getUserID();
+   setUserID(id);
 
   }, []);
   

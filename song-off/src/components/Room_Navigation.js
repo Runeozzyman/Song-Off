@@ -2,20 +2,27 @@ import React from 'react';
 import './component-css/Room_Navigation.css'
 import { Link } from 'react-router-dom';
 import { useNavigate }	from 'react-router-dom';
+import { joinRoom } from '../services/roomService';
   
   const Room_Navigation = () =>  {
 
 	const navigate = useNavigate();
 
+	async function join() {
+		const roomCode = document.getElementById("roomCode").value.trim();
+		await joinRoom(roomCode);
+	}
+
 	//asserts roomcode has been entered || TODO: add backend logic to verify with DB that room exists
 	function queryRoomCode(){
 		const roomCode = document.getElementById("roomCode").value.trim();
 
-		if(roomCode == null || roomCode == ""){
+		if(roomCode == null || roomCode === ""){
 			alert("Please enter a room code to join a room.");
 			return;
 		}
-
+		//insert join room endpoint
+		join();
 		navigate('/existing-room', {state: {roomCode: roomCode}});
 	}
 
