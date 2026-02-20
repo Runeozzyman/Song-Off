@@ -56,5 +56,55 @@ export async function createRoom(roomCode, roomName, players, rounds){
 
 }
 
+export async function getRoomPlayers(roomCode) {
 
+    const { data: room, error: roomError } = await supabase
+        .from("rooms")
+        .select("room_id")
+        .eq("room_code", roomCode)
+        .single();
+
+    if (roomError) throw roomError;
+    if (!room) throw new Error("Room not found");
+
+  
+    const { data, error } = await supabase
+        .from("room_players")
+        .select(`
+        user_id,
+        users (username)
+        `)
+        .eq("room_id", room.room_id);
+
+    if (error) throw error;
+
+    return data.map(p => p.users.username);
+        
+}
+
+export async function subscribeToRoomPlayers(roomCode, onChange){
+
+    const { data: room } = await supabase
+        .from("rooms")
+        .select("room_id")
+        .eq("room_code", roomCode)
+        .single();
+
+    if (!room) throw new Error("Room not found");
+
+    return supabase
+        .channel(`room-${room.room_id}`)
+        .on(
+        "postgres_changes",
+        {
+            event: "*",
+            schema: "public",
+            table: "room_players",
+            filter: `room_id=eq.${room.room_id}`
+        },
+        onChange
+        )
+        .subscribe();
+    
+}
   

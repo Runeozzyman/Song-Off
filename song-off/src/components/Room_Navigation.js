@@ -2,7 +2,7 @@ import React from 'react';
 import './component-css/Room_Navigation.css'
 import { Link } from 'react-router-dom';
 import { useNavigate }	from 'react-router-dom';
-import { joinRoom } from '../services/roomService';
+import { joinRoom, subscribeToRoomPlayers } from '../services/roomService';
   
   const Room_Navigation = () =>  {
 
@@ -22,7 +22,7 @@ import { joinRoom } from '../services/roomService';
 			return;
 		}
 		//insert join room endpoint
-		join();
+		
 		navigate('/existing-room', {state: {roomCode: roomCode}});
 	}
 
