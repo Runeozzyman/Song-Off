@@ -14,7 +14,7 @@ import { joinRoom, subscribeToRoomPlayers } from '../services/roomService';
 	}
 
 	//asserts roomcode has been entered || TODO: add backend logic to verify with DB that room exists
-	function queryRoomCode(){
+	async function queryRoomCode(){
 		const roomCode = document.getElementById("roomCode").value.trim();
 
 		if(roomCode == null || roomCode === ""){
@@ -22,8 +22,8 @@ import { joinRoom, subscribeToRoomPlayers } from '../services/roomService';
 			return;
 		}
 		//insert join room endpoint
-		
-		navigate('/existing-room', {state: {roomCode: roomCode}});
+		await join();
+		navigate(`/lobby/${roomCode}`);
 	}
 
 	return (

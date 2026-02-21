@@ -60,9 +60,11 @@ export async function getRoomPlayers(roomCode) {
 
     const { data: room, error: roomError } = await supabase
         .from("rooms")
-        .select("room_id")
+        .select("id")
         .eq("room_code", roomCode)
-        .single();
+        .maybeSingle();
+
+        console.log("ROOM: ", room);
 
     if (roomError) throw roomError;
     if (!room) throw new Error("Room not found");
@@ -70,15 +72,14 @@ export async function getRoomPlayers(roomCode) {
   
     const { data, error } = await supabase
         .from("room_players")
-        .select(`
-        user_id,
-        users (username)
-        `)
-        .eq("room_id", room.room_id);
+        .select("username")
+        .eq("room_id", room.id);
+
+    console.log("PLAYERS RAW: ", data);    
 
     if (error) throw error;
 
-    return data.map(p => p.users.username);
+    return data.map(p => p.username);
         
 }
 
@@ -86,21 +87,21 @@ export async function subscribeToRoomPlayers(roomCode, onChange){
 
     const { data: room } = await supabase
         .from("rooms")
-        .select("room_id")
+        .select("id")
         .eq("room_code", roomCode)
-        .single();
+        .maybeSingle();
 
     if (!room) throw new Error("Room not found");
 
     return supabase
-        .channel(`room-${room.room_id}`)
+        .channel(`room-${room.room_code}`)
         .on(
         "postgres_changes",
         {
             event: "*",
             schema: "public",
             table: "room_players",
-            filter: `room_id=eq.${room.room_id}`
+            filter: `id=eq.${room.id}`
         },
         onChange
         )

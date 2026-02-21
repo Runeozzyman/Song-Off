@@ -1,26 +1,49 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-  
-  const Player_List = () =>  {
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getRoomPlayers } from '../services/roomService';
+import { subscribeToRoomPlayers } from "../services/roomService";
+import { supabase } from "../lib/supabase";
 
-    let channel = null
-    const { roomCode } = useParams();
+const Player_List = () => {
+  const { roomCode } = useParams();
 
+  const [players, setPlayers] = useState([]);
 
+  useEffect(() => {
+    if (!roomCode) return;
 
-    function renderPlayers(players){
+    let channel;
 
-        //re-render list with li from players returned from DB
-
+    async function refreshPlayers() {
+      const data = await getRoomPlayers(roomCode);
+      console.log("getPlayers responseL: ", data);
+      setPlayers(data);
     }
- 
 
-	return (
-	  <div>
-        <ul id="playersList"></ul>
-	  </div>
-	);
-  }
-  
-  export default Player_List;
-  
+    async function setup() {
+
+      await refreshPlayers();
+
+      channel = await subscribeToRoomPlayers(roomCode, refreshPlayers);
+    }
+
+    setup();
+
+    return () => {
+      if (channel) supabase.removeChannel(channel);
+    };
+  }, [roomCode]);
+
+  return (
+    <div>
+      <ul>
+        <h2>Here are the active players:</h2>
+        {players.map((username, index) => (
+          <li key={index}>{username}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default Player_List;
