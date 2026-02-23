@@ -94,14 +94,14 @@ export async function subscribeToRoomPlayers(roomCode, onChange){
     if (!room) throw new Error("Room not found");
 
     return supabase
-        .channel(`room-${room.room_code}`)
+        .channel(`room-${room.id}`)
         .on(
-        "postgres_changes",
+        'postgres_changes',
         {
             event: "*",
             schema: "public",
             table: "room_players",
-            filter: `id=eq.${room.id}`
+            filter: `room_id=eq.${room.id}`
         },
         onChange
         )
