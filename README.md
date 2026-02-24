@@ -32,6 +32,13 @@
 5. **Using Declarative design rather than Imperative**
    - Using declarative design helps to abstract away low-level DOM manipulation
 
+6. **Using sesion storage to store commonly used data**
+
+7. **Implementing client-side DB endpoints with `Supabase`**
+    - Supabase uses RLS, so client-side DB logic/endpoints are secured and restricted to only that user
+
+8. **Using `Supabase Presence` to replace lobby logic**
+    - This simplified my database queries significantly, and replaces all create,delete, and update logic with a single subscription method
 
 
 
