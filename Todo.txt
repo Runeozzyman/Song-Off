@@ -1,6 +1,5 @@
-Last accomplished: implemented the /compare route in gemini_api.js -> takes input from the created_room page, 
-                   sends it to endpoint, and displays result
+Last accomplished: implemented supabase presence logic to simplify room creation and information handling (removed unecessary get/set/create endpoints),
+refactored lobby information into two seperate components
 
 TODO:
-- begin creating room logic so rooms can be created and joined (with room code)
-    - explore supabase realtime to do this as well as to handle realtime functions
+- implement realtime lobby chat function using supabase template 
