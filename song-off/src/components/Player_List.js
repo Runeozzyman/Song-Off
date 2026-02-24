@@ -3,47 +3,42 @@ import { useParams } from "react-router-dom";
 import { getRoomPlayers } from '../services/roomService';
 import { subscribeToRoomPlayers } from "../services/roomService";
 import { supabase } from "../lib/supabase";
+import { getUserID, getUsername } from "../utils/user";
+import { getRoomID } from "../utils/room";
 
 const Player_List = () => {
-  const { roomCode } = useParams();
-
   const [players, setPlayers] = useState([]);
 
+  const roomID = getRoomID(); // ✅ FIXED
+  const userID = getUserID();
+  const username = getUsername();
+
   useEffect(() => {
-    if (!roomCode) return;
-
-    let channel;
-
-    async function refreshPlayers() {
-      const data = await getRoomPlayers(roomCode);
-      console.log("getPlayers responseL: ", data);
-      setPlayers(data);
+    if (!roomID || !userID) {
+      console.log("Missing roomID or userID");
+      return;
     }
 
-    async function setup() {
+    const unsubscribe = subscribeToRoomPlayers(
+      roomID,
+      userID,
+      username,
+      setPlayers
+    );
 
-      await refreshPlayers();
-
-      channel = await subscribeToRoomPlayers(roomCode, refreshPlayers);
-    }
-
-    setup();
-
-    return () => {
-      if (channel) supabase.removeChannel(channel);
-    };
-  }, [roomCode]);
+    return unsubscribe;
+  }, [roomID, userID, username]);
 
   return (
     <div>
-      <ul>
-        <h2>Here are the active players:</h2>
-        {players.map((username, index) => (
-          <li key={index}>{username}</li>
-        ))}
-      </ul>
+      <h2>Players in Lobby</h2>
+
+      {players.map(player => (
+        <div key={player.userID}>
+          {player.username}
+        </div>
+      ))}
     </div>
   );
 };
-
 export default Player_List;

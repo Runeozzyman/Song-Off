@@ -12,6 +12,9 @@ export async function joinRoom(roomCode){
         .select("id")
         .eq("room_code", roomCode)
         .single()
+    
+    const roomID = room.id;
+    sessionStorage.setItem("roomID", roomID);
 
     if (roomError || !room){
         throw new Error("Room not found")
@@ -31,7 +34,7 @@ export async function joinRoom(roomCode){
     const {data, error: insertError } = await supabase
         .from("room_players")
         .insert({
-            room_id: room.id,
+            room_id: roomID,
             user_id: id,
             username: username
         })
@@ -83,29 +86,54 @@ export async function getRoomPlayers(roomCode) {
         
 }
 
-export async function subscribeToRoomPlayers(roomCode, onChange){
+export async function deleteRoomPlayer(user_id) {
 
-    const { data: room } = await supabase
-        .from("rooms")
-        .select("id")
-        .eq("room_code", roomCode)
-        .maybeSingle();
-
-    if (!room) throw new Error("Room not found");
-
-    return supabase
-        .channel(`room-${room.id}`)
-        .on(
-        'postgres_changes',
-        {
-            event: "*",
-            schema: "public",
-            table: "room_players",
-            filter: `room_id=eq.${room.id}`
-        },
-        onChange
-        )
-        .subscribe();
+    const {error} = await supabase
+        .from("room_players")
+        .delete()
+        .eq("user_id", user_id)
     
+    if (error) throw error;
+
+    return true;
+
+}
+
+export function subscribeToRoomPlayers(roomId, userID, username, setPlayers) {
+  const channel = supabase.channel(`room:${roomId}`, {
+    config: { presence: { key: userID } }
+  });
+
+  // helper to update state
+  const updatePlayers = () => {
+    const state = channel.presenceState();
+
+    const players = Object.keys(state).map(id => ({
+      userID: id,
+      ...(state[id]?.[0] || {})
+    }));
+
+    setPlayers(players);
+  };
+
+  // fires when full state syncs
+  channel.on("presence", { event: "sync" }, updatePlayers);
+
+  // fires instantly when someone joins
+  channel.on("presence", { event: "join" }, updatePlayers);
+
+  // fires instantly when someone leaves
+  channel.on("presence", { event: "leave" }, updatePlayers);
+
+  channel.subscribe(async status => {
+    if (status === "SUBSCRIBED") {
+      await channel.track({
+        userID,
+        username
+      });
+    }
+  });
+
+  return () => channel.unsubscribe();
 }
   
