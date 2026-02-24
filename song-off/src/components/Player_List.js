@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { subscribeToRoomPlayers } from "../services/roomService";
 import { getUserID, getUsername } from "../utils/user";
 import { getRoomID } from "../utils/room";
+import './component-css/Player_List.css';
 
 const Player_List = () => {
   const [players, setPlayers] = useState([]);
@@ -27,11 +28,11 @@ const Player_List = () => {
   }, [roomID, userID, username]);
 
   return (
-    <div>
-      <h2>Players in Lobby</h2>
-
+    <div className="playersInfo">
+      <h1>Players in Lobby</h1>
+      <div className="divider"></div>
       {players.map(player => (
-        <div key={player.userID}>
+        <div className="playerText"key={player.userID}>
           {player.username}
         </div>
       ))}
