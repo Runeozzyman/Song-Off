@@ -1,20 +1,26 @@
 import { useLocation, useParams } from 'react-router-dom';
-import { deleteRoomPlayer, getRoomPlayers, subscribeToRoomPlayers } from '../services/roomService';
 import Player_List from '../components/Player_List.js';
-import { useEffect, useState } from 'react';
-import { getUserID } from '../utils/user.js';
+import { getRoomName } from '../services/roomService.js';
 import { getRoomID } from '../utils/room.js';
+import { useEffect, useState } from 'react';
 
 const Lobby = () => {
   const location = useLocation();
   const { roomCode } = useParams();
-
-  const userID = getUserID();
   const roomID = getRoomID();
+  const [roomName, setRoomName] = useState();
 
-  const [players, setPlayers] = useState([]); // ✅ fixed
+  useEffect(() =>{
+    async function fetchRoomName() {
+      if(!roomID) return;
 
-  const roomName = location.state?.roomName ?? "Room";
+      const name = await getRoomName(roomID);
+      setRoomName(name);
+
+    }
+
+    fetchRoomName();
+  }, [roomID]);
 
   return (
     <div>

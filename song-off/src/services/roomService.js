@@ -59,44 +59,17 @@ export async function createRoom(roomCode, roomName, players, rounds){
 
 }
 
-export async function getRoomPlayers(roomCode) {
+export async function getRoomName(roomID){
 
-    const { data: room, error: roomError } = await supabase
+    const {data, error} = await supabase
         .from("rooms")
-        .select("id")
-        .eq("room_code", roomCode)
-        .maybeSingle();
-
-        console.log("ROOM: ", room);
-
-    if (roomError) throw roomError;
-    if (!room) throw new Error("Room not found");
-
-  
-    const { data, error } = await supabase
-        .from("room_players")
-        .select("username")
-        .eq("room_id", room.id);
-
-    console.log("PLAYERS RAW: ", data);    
+        .select("room_name")
+        .eq("id", roomID)
+        .single()
 
     if (error) throw error;
 
-    return data.map(p => p.username);
-        
-}
-
-export async function deleteRoomPlayer(user_id) {
-
-    const {error} = await supabase
-        .from("room_players")
-        .delete()
-        .eq("user_id", user_id)
-    
-    if (error) throw error;
-
-    return true;
-
+    return data.room_name;
 }
 
 export function subscribeToRoomPlayers(roomId, userID, username, setPlayers) {
@@ -116,13 +89,13 @@ export function subscribeToRoomPlayers(roomId, userID, username, setPlayers) {
     setPlayers(players);
   };
 
-  // fires when full state syncs
+  
   channel.on("presence", { event: "sync" }, updatePlayers);
 
-  // fires instantly when someone joins
+  
   channel.on("presence", { event: "join" }, updatePlayers);
 
-  // fires instantly when someone leaves
+
   channel.on("presence", { event: "leave" }, updatePlayers);
 
   channel.subscribe(async status => {

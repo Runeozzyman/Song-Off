@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getRoomPlayers } from '../services/roomService';
 import { subscribeToRoomPlayers } from "../services/roomService";
-import { supabase } from "../lib/supabase";
 import { getUserID, getUsername } from "../utils/user";
 import { getRoomID } from "../utils/room";
 
@@ -41,4 +38,5 @@ const Player_List = () => {
     </div>
   );
 };
+
 export default Player_List;
