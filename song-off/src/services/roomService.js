@@ -9,16 +9,17 @@ export async function joinRoom(roomCode){
 
     const {data: room, error: roomError} = await supabase
         .from("rooms")
-        .select("id")
+        .select("id", "max_players")
         .eq("room_code", roomCode)
         .single()
     
-    const roomID = room.id;
-    sessionStorage.setItem("roomID", roomID);
 
     if (roomError || !room){
         throw new Error("Room not found")
     }
+
+    const roomID = room.id;
+    sessionStorage.setItem("roomID", roomID);
 
     const {data: existingPlayer } = await supabase
         .from("room_players")
@@ -30,6 +31,8 @@ export async function joinRoom(roomCode){
     if(existingPlayer){
         return {success: true, message: "already in room"}
     }
+
+
 
     const {data, error: insertError } = await supabase
         .from("room_players")
