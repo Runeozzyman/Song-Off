@@ -1,0 +1,20 @@
+.room-information h1,
+.room-information h2 {
+    margin: 0;
+}
+
+.room-information{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    border-radius: 15px;
+    background-color: #363535;
+
+    min-width: 400px;
+    max-width:fit-content;
+    margin: 0 auto;
+    padding: 15px;
+    
+}
