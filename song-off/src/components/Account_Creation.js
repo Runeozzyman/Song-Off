@@ -5,6 +5,7 @@ import { userSignUp } from "../services/userService";
 
 const Account_Creation = () => {
   const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
@@ -22,9 +23,9 @@ const Account_Creation = () => {
 
     try {
       setLoading(true);
-      const result = await userSignUp(email, password);
+      const result = await userSignUp(email, password, username);
       console.log(result);
-      navigate("/")
+      navigate("/login")
 
     } catch (err) {
         if(err.message.includes("already registered")){
@@ -48,6 +49,15 @@ const Account_Creation = () => {
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+        required
+      />
+
+      <input
+        id="username"
+        type="text"
+        placeholder="Username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
         required
       />
 
