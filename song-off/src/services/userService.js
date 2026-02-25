@@ -15,3 +15,25 @@ export async function userSignUp(email, password, username) {
 
   return data.user;
 }
+
+export async function userLogin(email, password) {
+
+  try {
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password
+    });
+
+    if (error) throw error;
+    return { success: true, user: data.user };
+
+  }catch (err) {
+    return { success: false, message: err.message};
+  }
+
+}
+
+export async function getCurrentUser() {
+    const {data} = await supabase.auth.getSession();
+    return data.session?.user ?? null;
+}

@@ -9,6 +9,7 @@ import Lobby from '../pages/Lobby';
 import Login from '../pages/Login';
 import { Route, Routes } from 'react-router-dom';
 import Create_Account from '../pages/Create_Account';
+import Home from '../pages/Home';
 
   const App_Routes = () =>  {
 	return (
@@ -21,7 +22,8 @@ import Create_Account from '../pages/Create_Account';
                     <Route path="create-account" element={<Create_Account />}></Route>
                     <Route path="start" element = {<Start />}></Route>
                   </Route>
-        
+
+                  <Route path = "/home" element = {<Home/>}></Route>
                   <Route path = "/new-room" element={<New_Room/>}></Route>
                   <Route path = "/existing-room" element={<Existing_Room/>}></Route>
                   <Route path = "/lobby/:roomCode" element={<Lobby/>}></Route>

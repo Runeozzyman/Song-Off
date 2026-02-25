@@ -20,7 +20,7 @@ import { SlControlPlay } from "react-icons/sl";
       
       
       <h2 className="Description-title">Think you've got good Taste? Prove it.
-        <Link to = "/start">
+        <Link to = "/login">
         <button className = "play-button"><SlControlPlay  size={30}/></button>
         </Link>
       </h2>
