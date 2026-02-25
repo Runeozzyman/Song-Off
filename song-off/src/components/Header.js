@@ -13,7 +13,7 @@
           }}
           
         >
-          <h1>Song Off</h1>
+          <h1>Song off</h1>
         </Link>
         <h3>Think you've got good taste? Prove it.</h3>
 	  </div>

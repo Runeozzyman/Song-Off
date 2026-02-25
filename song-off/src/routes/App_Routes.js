@@ -6,7 +6,9 @@ import New_Room from '../pages/New_Room';
 import Existing_Room from '../pages/Existing_Room';
 import Created_Room from '../pages/Created_Room';
 import Lobby from '../pages/Lobby'; 
+import Login from '../pages/Login';
 import { Route, Routes } from 'react-router-dom';
+import Create_Account from '../pages/Create_Account';
 
   const App_Routes = () =>  {
 	return (
@@ -15,6 +17,8 @@ import { Route, Routes } from 'react-router-dom';
         
                   <Route element={<Boxes_Layout />}>
                     <Route index element={<Landing />}></Route>
+                    <Route path="login" element= {<Login />}></Route>
+                    <Route path="create-account" element={<Create_Account />}></Route>
                     <Route path="start" element = {<Start />}></Route>
                   </Route>
         

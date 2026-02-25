@@ -13,7 +13,6 @@ export async function joinRoom(roomCode){
         .eq("room_code", roomCode)
         .single()
     
-
     if (roomError || !room){
         throw new Error("Room not found")
     }
@@ -32,8 +31,6 @@ export async function joinRoom(roomCode){
         return {success: true, message: "already in room"}
     }
 
-
-
     const {data, error: insertError } = await supabase
         .from("room_players")
         .insert({
@@ -45,7 +42,6 @@ export async function joinRoom(roomCode){
     if (insertError) throw insertError;
     return data;
 }
-
 
 export async function createRoom(roomCode, roomName, players, rounds){
 
