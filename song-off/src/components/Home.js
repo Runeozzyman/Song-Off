@@ -6,8 +6,6 @@ import { SlControlPlay } from "react-icons/sl";
 
   const Home = () =>  {
 
-  const [username, setUsername] = React.useState("");
-
   const handleSubmit = (e) => {
     e.preventDefault();
   }
@@ -17,7 +15,6 @@ import { SlControlPlay } from "react-icons/sl";
 	<div className="Home-box">
 
     <div className="Content-box">
-      
       
       <h2 className="Description-title">Think you've got good Taste? Prove it.
         <Link to = "/login">
