@@ -1,13 +1,36 @@
-import React from 'react';
-import {Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import {Link, useNavigate } from 'react-router-dom';
 import './component-css/Home.css';
 import { SlControlPlay } from "react-icons/sl";
+import { getCurrentUser, getUsername } from '../services/userService';
 
 
   const Home = () =>  {
+  
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+  }
+
+  async function getUserSessionData(params) {
+    const session = getCurrentUser();
+
+    if(session){
+      navigate("/home");
+    }
+
+    setLoading(false);
+  
+  }
+
+  useEffect(()=>{
+    getUserSessionData();
+  });
+  
+  if(loading){
+    return null;
   }
 
 	return (
