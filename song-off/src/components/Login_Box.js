@@ -26,14 +26,13 @@ import { getCurrentUser, userLogin } from '../services/userService';
     async function login(e) {
         e.preventDefault();
 
-        try{
-            const result = await userLogin(email,password);
-            console.log(result);
-            navigate("/");
-        }
+        const result = await userLogin(email,password);
 
-        catch{
-            setError("Incorrect Username or Password");
+        if(result.success){
+            navigate("/home")
+        }else{
+            setError("Incorrect Email or Password");
+            alert(error);
         }
     }
 
@@ -68,7 +67,6 @@ import { getCurrentUser, userLogin } from '../services/userService';
         
 
         <button>Login</button>
-        
         <Link to="/create-account" style={{textDecoration: 'none',color: 'inherit'}}><h2>create account</h2></Link>
 	  
 

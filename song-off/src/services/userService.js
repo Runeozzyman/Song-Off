@@ -42,3 +42,10 @@ export async function getUsername() {
   const user = await getCurrentUser();
   return user.user_metadata.username;
 }
+
+export async function userLogout(){
+  const{error} = await supabase.auth.signOut();
+
+  if (error) throw error;
+  return;
+}

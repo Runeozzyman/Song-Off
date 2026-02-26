@@ -6,6 +6,7 @@ import Login from '../pages/Login';
 import { Route, Routes } from 'react-router-dom';
 import Create_Account from '../pages/Create_Account';
 import Home from '../pages/Home';
+import Profile from '../pages/Profile';
 
   const App_Routes = () =>  {
 	return (
@@ -18,6 +19,7 @@ import Home from '../pages/Home';
                     <Route path="create-account" element={<Create_Account />}></Route>
                   </Route>
 
+                  <Route path = "/profile" element={<Profile/>}></Route>
                   <Route path = "/home" element = {<Home/>}></Route>
                   <Route path = "/new-room" element={<New_Room/>}></Route>
         
