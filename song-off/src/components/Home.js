@@ -6,32 +6,6 @@ import { getCurrentUser, getUsername } from '../services/userService';
 
 
   const Home = () =>  {
-  
-  const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  }
-
-  async function getUserSessionData(params) {
-    const session = getCurrentUser();
-
-    if(session){
-      navigate("/home");
-    }
-
-    setLoading(false);
-  
-  }
-
-  useEffect(()=>{
-    getUserSessionData();
-  });
-  
-  if(loading){
-    return null;
-  }
 
 	return (
 
