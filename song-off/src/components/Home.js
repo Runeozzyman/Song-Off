@@ -24,7 +24,6 @@ import { getCurrentUser, getUsername } from '../services/userService';
   </div>
 
 
-
 	);
   }
   

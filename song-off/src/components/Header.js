@@ -24,10 +24,9 @@ import { Link } from 'react-router-dom';
 
   getUserData();
 
-  // 👇 listen for login/logout
   const { data: listener } = supabase.auth.onAuthStateChange(
     () => {
-      getUserData(); // re-check user
+      getUserData();
     }
   );
 
