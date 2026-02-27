@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState} from 'react';
 import { getUsername } from '../services/userService';
 import User_Submission from '../components/User_Submission';
 import Promoted_Song from '../components/Promoted_Song';
@@ -11,6 +11,7 @@ async function getUserDataOnStart(params) {
   }
 
   const Home = () =>  {
+    
 	return (
 	  <div className='home-panel'>
         <User_Submission/>
