@@ -1,0 +1,29 @@
+.promoted-box{
+    display: flex;
+    flex-direction: column;
+    border: none;
+    border-radius: 15px;
+    width: 500px;
+    min-height: 200px;
+    background-color: #363535;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.promoted-header{
+    background-color: #1eff00cc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+}
+
+.promoted-content{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}

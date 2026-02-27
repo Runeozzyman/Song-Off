@@ -6,7 +6,7 @@ import './component-css/User_Submission.css';
 	  <div className='submission-container'>
 
         <div className='submission-header'>
-            <h2>Your Weekly Submission</h2>
+            <h1>Your Weekly Submission</h1>
         </div>
 
         <div className='submission-entry'>

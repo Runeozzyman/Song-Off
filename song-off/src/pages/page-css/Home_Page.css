@@ -1,0 +1,9 @@
+.home-panel{
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.home-panel h1{
+    font-weight: 200;
+}
