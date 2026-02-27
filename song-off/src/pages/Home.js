@@ -1,5 +1,6 @@
 import React from 'react';
 import { getUsername } from '../services/userService';
+import User_Submission from '../components/User_Submission';
 
 async function getUserDataOnStart(params) {
     const uname = await getUsername();
@@ -10,7 +11,7 @@ async function getUserDataOnStart(params) {
   const Home = () =>  {
 	return (
 	  <div>
-        home page
+        <User_Submission/>
 	  </div>
 	);
   }
