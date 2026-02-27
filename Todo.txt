@@ -1,5 +1,8 @@
-Last accomplished: implemented and fixed login and logout logic using supabase auth calls. Track user session for dynamic username display in header.
-Implemented home page components.
+Last accomplished: implemented spotify API, integrated into backend with express, created endpoints for fetching song data,
+created supabase service for submitting a selected song, created services for fetching submitted songs, added conditional rendering on home page for
+submitted song and promoted song.
 
 TODO:
-- Link project to Spotify API, begin implementing endpoints to fetch song data and link user account. Also fetch and display custom playlist.
+- Create supabase table 'submitted_songs' with FK track ID referencing submitted songs from profiles
+- Create leaderboard to display top X submitted songs
+- Create spotify playlist of the leaderboard songs, display playlist somewhere
