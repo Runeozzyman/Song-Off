@@ -16,6 +16,6 @@ export async function getSpotifyToken() {
     body: "grant_type=client_credentials",
   });
 
-  console.log(res.json)
+  console.log(res.json);
   return res.json();
 }

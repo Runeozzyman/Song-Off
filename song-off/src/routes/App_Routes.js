@@ -7,6 +7,7 @@ import { Route, Routes } from 'react-router-dom';
 import Create_Account from '../pages/Create_Account';
 import Home from '../pages/Home';
 import Profile from '../pages/Profile';
+import Submission_Page from '../pages/Submission_Page';
 
   const App_Routes = () =>  {
 	return (
@@ -17,8 +18,10 @@ import Profile from '../pages/Profile';
                     <Route index element={<Landing />}></Route>
                     <Route path="login" element= {<Login />}></Route>
                     <Route path="create-account" element={<Create_Account />}></Route>
+                    
                   </Route>
-
+                  
+                  <Route path="submit" element={<Submission_Page/>}></Route>
                   <Route path = "/profile" element={<Profile/>}></Route>
                   <Route path = "/home" element = {<Home/>}></Route>
                   <Route path = "/new-room" element={<New_Room/>}></Route>

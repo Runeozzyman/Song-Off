@@ -1,7 +1,15 @@
 import React from 'react';
 import './component-css/User_Submission.css';  
+import { useNavigate } from 'react-router-dom';
 
   const User_Submission = () =>  {
+
+  const navigate = useNavigate();
+
+  async function handleSubmit() {
+    navigate("/submit");
+  }
+
 	return (
 	  <div className='submission-container'>
 
@@ -16,6 +24,8 @@ import './component-css/User_Submission.css';
         <div className='user-submission'>
             placeholder for submission
         </div>
+
+        <button onClick={handleSubmit}>Submit your choice</button>
 
 	  </div>
 	);
