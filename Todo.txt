@@ -1,5 +1,5 @@
-Last accomplished: implemented supabase presence logic to simplify room creation and information handling (removed unecessary get/set/create endpoints),
-refactored lobby information into two seperate components
+Last accomplished: implemented and fixed login and logout logic using supabase auth calls. Track user session for dynamic username display in header.
+Implemented home page components.
 
 TODO:
-- implement realtime lobby chat function using supabase template 
+- Link project to Spotify API, begin implementing endpoints to fetch song data and link user account. Also fetch and display custom playlist.
