@@ -4,11 +4,6 @@ import User_Submission from '../components/User_Submission';
 import Promoted_Song from '../components/Promoted_Song';
 import "./page-css/Home_Page.css"
 
-async function getUserDataOnStart(params) {
-    const uname = await getUsername();
-    console.log(uname);
-    return uname;
-  }
 
   const Home = () =>  {
     

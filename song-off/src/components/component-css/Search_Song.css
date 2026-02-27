@@ -17,6 +17,12 @@ display: flex;
   justify-content: center;
 }
 
+.submitted-song h3{
+    display: flex;
+    font-weight: 200;
+    justify-content: center;
+}
+
 .search-input {
   width: 95%;
   padding: 10px;

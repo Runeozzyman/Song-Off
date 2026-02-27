@@ -20,3 +20,9 @@
     padding: 0;
     width: 100%;
 }
+
+.submission-song-card {
+  width: 100%;         
+  max-width: 500px;     
+  margin: 0 auto;       
+}
