@@ -3,6 +3,7 @@ import './component-css/User_Submission.css';
 import { useNavigate } from 'react-router-dom';
 import { getSubmittedSong } from '../services/songService.js';
 import Spotify_Player from './Spotify_Player';
+import { FaArrowRight } from "react-icons/fa";
 
   const User_Submission = () =>  {
 
@@ -41,7 +42,8 @@ import Spotify_Player from './Spotify_Player';
         
         {!userSubmission &&(
         <div className='submission-null'>
-          <button onClick={handleSubmit}>Submit your choice</button>
+          <h2>Submit this weeks choice!</h2>
+          <button className="nav-submit-btn" onClick={handleSubmit}><FaArrowRight size={25}/></button>
         </div>
         )}
              

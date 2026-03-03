@@ -1,7 +1,6 @@
 import React from 'react';
 import Boxes_Layout from '../layouts/Boxes_Layout';
-import Landing from '../pages/Landing';
-import New_Room from '../pages/New_Room'; 
+import Landing from '../pages/Landing'; 
 import Login from '../pages/Login';
 import { Route, Routes } from 'react-router-dom';
 import Create_Account from '../pages/Create_Account';
@@ -24,7 +23,6 @@ import Submission_Page from '../pages/Submission_Page';
                   <Route path="submit" element={<Submission_Page/>}></Route>
                   <Route path = "/profile" element={<Profile/>}></Route>
                   <Route path = "/home" element = {<Home/>}></Route>
-                  <Route path = "/new-room" element={<New_Room/>}></Route>
         
               </Routes>
 	  </div>

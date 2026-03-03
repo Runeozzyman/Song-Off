@@ -8,7 +8,6 @@
     background-color: #363535;
     align-items: center;
     margin: 0 auto;
-
 }
 
 .submission-header{
@@ -22,7 +21,29 @@
 }
 
 .submission-song-card {
-  width: 100%;         
-  max-width: 500px;     
-  margin: 0 auto;       
+  flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;    
+}
+
+.submission-null{
+    font-size: larger;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.submission-null button{
+    background: transparent;
+    border: none;
+    color: #fff702cc;
+}
+
+.submission-null button:hover{
+    color: #8a8500cc;
 }
