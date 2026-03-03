@@ -69,10 +69,9 @@ app.get("/api/spotify/search", async (req, res) => {
 
     const data = await response.json();
 
-    // DEBUG: see what Spotify actually returned
     console.log("Spotify response:", data);
 
-    // handle Spotify errors safely
+    
     if (!data.tracks) {
       return res.status(500).json({
         error: "Spotify search failed",
