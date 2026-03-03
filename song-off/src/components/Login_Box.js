@@ -43,6 +43,8 @@ import { getCurrentUser, userLogin } from '../services/userService';
     if (loading) return null;
 
 	return (
+
+    <div className='auth-page'>
       <form className='userInfo' onSubmit={login}>
 
         <h1>Login</h1>
@@ -71,6 +73,7 @@ import { getCurrentUser, userLogin } from '../services/userService';
 	  
 
      </form> 
+     </div>
 	);
   }
   

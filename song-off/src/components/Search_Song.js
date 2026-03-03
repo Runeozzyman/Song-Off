@@ -34,25 +34,25 @@ const Search_Song = () => {
   }, []);
 
   useEffect(() => {
-    if (!query.trim()) {
-      setTracks([]);
-      return;
+  if (!query.trim()) {
+    setTracks([]);
+    return;
+  }
+
+  const delay = setTimeout(async () => {
+    try {
+      const res = await fetch(
+        `http://localhost:4000/api/spotify/search?q=${query}`
+      );
+      const data = await res.json();
+      setTracks(data);
+    } catch (err) {
+      console.error("Search failed:", err);
     }
+  }, 200);
 
-    const delay = setTimeout(async () => {
-      try {
-        const res = await fetch(
-          `http://localhost:4000/api/spotify/search?q=${query}`
-        );
-        const data = await res.json();
-        setTracks(data);
-      } catch (err) {
-        console.error("Search failed:", err);
-      }
-    }, 200);
-
-    return () => clearTimeout(delay);
-  }, [query]);
+  return () => clearTimeout(delay);
+}, [query]);
 
   function handleSelect(track) {
     setSelectedTrack(track);
@@ -71,11 +71,13 @@ const Search_Song = () => {
   return (
     <div className="search-container">
       {!submitted && <h2>Search Songs</h2>}
-
-      {submittedTrack && (
+      {!submitted && <div className='divider'></div>}
+      
+      {submittedTrack && (  
         <div className="submitted-song">
           <h3>Your submission</h3>
           <Spotify_Player trackID={submittedTrack} />
+
         </div>
       )}
 
@@ -87,7 +89,7 @@ const Search_Song = () => {
         </div>
       )}
 
-      {!submitted && (
+      {!submitted &&  (
         <input
           className="search-input"
           value={query}
@@ -95,7 +97,7 @@ const Search_Song = () => {
           placeholder="Search for a song..."
         />
       )}
-    {!submitted &&(
+    {!submitted && (
       <div className="results">
         {tracks.map((track) => (
           <div
