@@ -11,7 +11,7 @@ export function useTop25PlaylistUpdater() {
         const top25 = await getTopNSongs(25);
         console.log("Top 25 songs from Supabase:", top25);
 
-        // Determine the correct ID/URI to use
+      
         const newRanking = top25
           .map(s => s.submitted_track_id)
           .filter(Boolean);
@@ -21,7 +21,7 @@ export function useTop25PlaylistUpdater() {
           return;
         }
 
-        // Ensure we only prefix IDs that aren't already full URIs
+        
         const uris = newRanking.map(id => `spotify:track:${id}`);
 
         console.log("Spotify URIs being sent:", uris);
