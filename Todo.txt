@@ -1,8 +1,8 @@
-Last accomplished: created leaderboard component using supabase view to select top 10 songs and display in order
+Last accomplished: implemented periodic check and update to update spotify playlist with top 25 songs
 
 TODO:
 - fix minor css inconsistencies
 - flesh out profile page w/ bio, favourite genre, profile pic
-- create spotify playlist for top 10 songs and corresponding component
+- create playlist component for top 25
 - add friends functionality / friends list
 - implement load and wait before displaying home page
