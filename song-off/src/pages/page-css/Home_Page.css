@@ -1,9 +1,33 @@
-.home-panel{
+.song-board{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    gap: 250px;
+}
+
+
+.leaderboard{
+ background-color: #363535;
+ padding: 10px;
+ border-radius: 15px;
+}
+
+.leaderboard,
+.song-panel {
+  height: 920px;  
+}
+
+
+.song-panel{
     display: flex;
     flex-direction: column;
     gap: 35px;
+    background-color: #363535;
+    padding: 20px;
+    border-radius: 15px;
 }
 
-.home-panel h1{
+.song-panel h1{
     font-weight: 200;
 }

@@ -4,9 +4,7 @@ import Account_Creation from '../components/Account_Creation.js';
 
   const Create_Account = () =>  {
 	return (
-	  <div>
-        <Account_Creation/>
-	  </div>
+        <Account_Creation/> 
 	);
   }
   

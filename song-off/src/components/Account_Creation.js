@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { userSignUp } from "../services/userService";
+import './component-css/Account_Creation.css';
 
 const Account_Creation = () => {
   const [email, setEmail] = useState("");
@@ -40,51 +41,53 @@ const Account_Creation = () => {
   }
 
   return (
-    <form className="userInfo" onSubmit={accountSignUp}>
-      <h1>Create Account</h1>
+    <div className='creation-box'>
+      <form className="userInfo" onSubmit={accountSignUp}>
+        <h1>Create Account</h1>
 
-      <input
-        id="email"
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-      />
+        <input
+          id="email"
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
 
-      <input
-        id="username"
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        required
-      />
+        <input
+          id="username"
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
 
-      <input
-        id="password"
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
+        <input
+          id="password"
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
 
-      <input
-        id="pass-confirm"
-        type="password"
-        placeholder="Confirm Password"
-        value={confirmPassword}
-        onChange={(e) => setConfirmPassword(e.target.value)}
-        required
-      />
+        <input
+          id="pass-confirm"
+          type="password"
+          placeholder="Confirm Password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          required
+        />
 
-      {error && <p>{error}</p>}
+        {error && <p>{error}</p>}
 
-      <button disabled={loading}>
-        {loading ? "Creating..." : "Register"}
-      </button>
-    </form>
+        <button disabled={loading}>
+          {loading ? "Creating..." : "Register"}
+        </button>
+      </form>
+    </div>
   );
 };
 
