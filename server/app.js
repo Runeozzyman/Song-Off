@@ -1,7 +1,8 @@
 import "dotenv/config";
 import express from 'express';
 import cors from 'cors';
-import {getSpotifyToken} from './routes/spotify_auth.js';
+import { getSpotifyToken } from './routes/spotify_auth.js';
+import { getSpotifyUserAccessToken } from "./routes/spotify_auth.js";
 
 const router = express.Router();
 const app = express();
@@ -84,6 +85,40 @@ app.get("/api/spotify/search", async (req, res) => {
   } catch (err) {
     console.error("Search failed:", err);
     res.status(500).json({ error: "Search failed" });
+  }
+});
+
+const PLAYLIST_ID = process.env.SPOTIFY_PLAYLIST_ID;
+
+app.post("/api/spotify/update-playlist", async (req, res) => {
+  try {
+    const { uris } = req.body;
+    if (!uris || !uris.length) return res.status(400).json({ error: "No tracks provided" });
+
+    const accessToken = await getSpotifyUserAccessToken();
+    console.log(accessToken);
+
+    const response = await fetch(
+      `https://api.spotify.com/v1/playlists/${PLAYLIST_ID}/tracks`,
+      {
+        method: "PUT",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ uris }),
+      }
+    );
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      return res.status(500).json({ error: "Spotify API error", details: errorData });
+    }
+
+    res.json({ message: "Playlist updated successfully!" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Failed to update playlist" });
   }
 });
 
