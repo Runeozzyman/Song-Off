@@ -10,22 +10,23 @@ import Submission_Page from '../pages/Submission_Page';
 
   const App_Routes = () =>  {
 	return (
-	  <div>
+	  
               <Routes>
         
                   <Route element={<Boxes_Layout />}>
+
                     <Route index element={<Landing />}></Route>
-                    <Route path="login" element= {<Login />}></Route>
                     <Route path="create-account" element={<Create_Account />}></Route>
-                    
+                    <Route path="login" element= {<Login />}></Route>
                   </Route>
+
                   
                   <Route path="submit" element={<Submission_Page/>}></Route>
                   <Route path = "/profile" element={<Profile/>}></Route>
                   <Route path = "/home" element = {<Home/>}></Route>
         
               </Routes>
-	  </div>
+	  
 	);
   }
   

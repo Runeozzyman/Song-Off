@@ -14,9 +14,11 @@ function App() {
 <BrowserRouter>
   <div className="AppRoot">
     <Header />
-    <div className = "bg-img"><BackgroundImage /></div>
-
+    <BackgroundImage />
+    <div className='main-content'>
       <App_Routes />
+    </div>
+      
   
     <Footer />
   </div>
