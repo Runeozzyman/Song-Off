@@ -122,6 +122,26 @@ app.post("/api/spotify/update-playlist", async (req, res) => {
   }
 });
 
+app.get('/api/spotify/oembed/:trackID', async(req,res) =>{
+  const { trackID } = req.params;
+  try {
+    const response = await fetch(
+      `https://open.spotify.com/oembed?url=https://open.spotify.com/track/${trackID}`
+    );
+
+    const data = await response.json();
+
+    res.json({
+      title: data.title,
+      thumbnail: data.thumbnail_url
+    });
+
+  } catch (err) {
+    console.error("Spotify oEmbed error:", err);
+    res.status(500).json({ error: "Failed to fetch Spotify metadata" });
+  }
+});
+
 
 app.listen(PORT);
 

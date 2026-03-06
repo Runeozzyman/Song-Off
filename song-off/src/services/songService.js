@@ -16,6 +16,9 @@ export async function submitSelectedSong(trackID) {
 
     if(error) throw error;
 
+    sessionStorage.removeItem("top50Songs");
+    sessionStorage.removeItem("top10Songs");
+
     return;
 }
 

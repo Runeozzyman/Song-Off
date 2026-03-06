@@ -1,0 +1,31 @@
+.spotify-preview{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  width:100%;
+  min-width:0;
+}
+
+.spotify-preview img{
+  width:60px;
+  height:60px;
+  border-radius:8px;
+  object-fit:cover;
+  flex-shrink:0;
+}
+
+.spotify-preview-info{
+  font-size:24px;
+  font-weight:200;
+  color:white;
+
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  flex:1;
+  min-width:0;
+}
+
+.spotify-preview-info:hover{
+    color: #fff702cc;
+}
