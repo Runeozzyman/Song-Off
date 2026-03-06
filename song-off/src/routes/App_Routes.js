@@ -7,6 +7,7 @@ import Create_Account from '../pages/Create_Account';
 import Home from '../pages/Home';
 import Profile from '../pages/Profile';
 import Submission_Page from '../pages/Submission_Page';
+import Full_Leaderboard from '../pages/Full_Leaderboard';
 
   const App_Routes = () =>  {
 	return (
@@ -18,6 +19,7 @@ import Submission_Page from '../pages/Submission_Page';
                     <Route index element={<Landing />}></Route>
                     <Route path="create-account" element={<Create_Account />}></Route>
                     <Route path="login" element= {<Login />}></Route>
+                    <Route path="leaderboard" element={<Full_Leaderboard />}></Route>
                   </Route>
 
                   

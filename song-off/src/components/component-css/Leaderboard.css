@@ -64,3 +64,11 @@
   scrollbar-width: thin;
   scrollbar-color: #555 transparent;
 }
+
+.link-to-full-leaderboard{
+  display: flex;
+  text-decoration: none;
+  color: orange;
+  align-items: center;
+  justify-content: center;
+}
