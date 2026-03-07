@@ -9,3 +9,4 @@ TODO:
 - create playlist component for top 50 songs
 - add friends functionality / friends list
 - fix leaderboard css size -> player shifts votes
+- show artist on leaderboards (both)
