@@ -14,13 +14,15 @@
   flex-shrink:0;
 }
 
+.spotify-preview .spotify-preview-info{
+  font-size:24px;
+}
+
 .spotify-preview-info{
   font-size:24px;
   font-weight:200;
   color:white;
-
   white-space:nowrap;
-  overflow:hidden;
   text-overflow:ellipsis;
   flex:1;
   min-width:0;
