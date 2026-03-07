@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { Audio } from 'react-loader-spinner';
 import './component-css/Spotify_Preview.css';
+import Spotify_Player_Small from './Spotify_Player_Small';
 
 const Spotify_Preview = ({trackID, image}) =>  {
   const [loaded, setLoaded] = useState(false);
@@ -40,17 +41,7 @@ const Spotify_Preview = ({trackID, image}) =>  {
 }, [trackID]);
 
   if (loaded) {
-    return (
-      <iframe
-        src={`https://open.spotify.com/embed/track/${trackID}`}
-        width="100%"
-        height="80"
-        style={{ border: "none", borderRadius: "12px" }}
-        allow="encrypted-media"
-        loading="lazy"
-        title="Spotify Player"
-      />
-    );
+    return  <Spotify_Player_Small trackID={trackID}/>
   }
 
   return (
