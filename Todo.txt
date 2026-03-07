@@ -8,3 +8,4 @@ TODO:
 - flesh out profile page w/ bio, favourite genre, profile pic
 - create playlist component for top 50 songs
 - add friends functionality / friends list
+- fix leaderboard css size -> player shifts votes
