@@ -1,8 +1,8 @@
-Last accomplished: implemented periodic check and update to update spotify playlist with top 25 songs
+Last accomplished: implemented dedicated leaderboard page with top 50 songs, added preview using metadata for lightweight rendering -> renders spotify player
+                   on-click, re-used preview logic on home page leaderboard
 
 TODO:
 - fix minor css inconsistencies
 - flesh out profile page w/ bio, favourite genre, profile pic
-- create playlist component for top 25
+- create playlist component for top 50 songs
 - add friends functionality / friends list
-- implement load and wait before displaying home page
