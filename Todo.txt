@@ -2,6 +2,7 @@ Last accomplished: implemented dedicated leaderboard page with top 50 songs, add
                    on-click, re-used preview logic on home page leaderboard
 
 TODO:
+- fix promoted song to bottom (when no submission, it shifts up)
 - add nav icons to header left side (home, leaderboard)
 - fix minor css inconsistencies
 - flesh out profile page w/ bio, favourite genre, profile pic
