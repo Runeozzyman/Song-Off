@@ -3,7 +3,6 @@ import { useState, useEffect, memo } from 'react';
 import { getTopNSongs } from '../services/songService';
 import { Audio } from 'react-loader-spinner';
 import './page-css/Full_Leaderboard.css';
-import LazyLoad from 'react-lazyload';
 import Spotify_Preview from '../components/Spotify_Preview';
   
   const Full_Leaderboard = () =>  {
