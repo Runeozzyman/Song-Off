@@ -3,12 +3,13 @@
   align-items:center;
   gap:12px;
   width:100%;
+  max-width: 600px;
   min-width:0;
 }
 
 .spotify-preview img{
-  width:60px;
-  height:60px;
+  width:64px;
+  height:64px;
   border-radius:8px;
   object-fit:cover;
   flex-shrink:0;
@@ -16,6 +17,7 @@
 
 .spotify-preview .spotify-preview-info{
   font-size:24px;
+  font-weight: 200;
 }
 
 .spotify-preview-info{
