@@ -20,7 +20,6 @@
 2. **Constructing pages using modular components**
    - Pages are composed of reusable components.
    - This keeps components modular while preventing `App.js` from becoming cluttered.
-   - Follows single-page application (SPA) best practices.
 
 3. **Implementing client-side routing with `react-router-dom`**
    - Using `BrowserRouter`, `Routes`, `Route`, and `Link` for navigation.
