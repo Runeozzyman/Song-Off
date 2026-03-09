@@ -11,7 +11,7 @@ import Leaderboard from '../components/Leaderboard';
 	return (
     <div className='song-board'>
 
-      <div className='leaderboard'>
+      <div className='leaderboard-panel'>
         < Leaderboard/>
       </div>
 

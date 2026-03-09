@@ -3,23 +3,29 @@
     flex-direction: row;
     justify-content: center;
     align-items: stretch;
-    gap: 250px;
+    gap: 300px;
 }
 
-
-.leaderboard{
+.leaderboard-panel{
  background-color: #363535;
- padding: 10px;
+ padding: 20px;
  border-radius: 15px;
+ width: 100%;
+ max-width: 500px;
 }
 
-.leaderboard,
+.leaderboard-panel h1{
+    font-weight: 200;
+
+}
+
+.leaderboard-panel,
 .song-panel {
   height: 920px;  
 }
 
-
 .song-panel{
+    max-width: fit-content;
     display: flex;
     flex-direction: column;
     gap: 35px;
