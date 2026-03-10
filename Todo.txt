@@ -1,10 +1,6 @@
-Last accomplished: implemented dedicated leaderboard page with top 50 songs, added preview using metadata for lightweight rendering -> renders spotify player
-                   on-click, re-used preview logic on home page leaderboard
+Last accomplished: added header nav bar for various pages, and related page protection for pages that require authentication, fixed various css issues
 
 TODO:
-- fix promoted song to bottom (when no submission, it shifts up)
-- add nav icons to header left side (home, leaderboard)
-- fix minor css inconsistencies
 - flesh out profile page w/ bio, favourite genre, profile pic
 - create playlist component for top 50 songs
 - add friends functionality / friends list
