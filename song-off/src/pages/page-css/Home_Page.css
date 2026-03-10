@@ -37,3 +37,7 @@
 .song-panel h1{
     font-weight: 200;
 }
+
+.promoted-song-wrapper{
+  margin-top: auto;
+}

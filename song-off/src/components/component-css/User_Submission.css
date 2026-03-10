@@ -4,7 +4,7 @@
     border: none;
     border-radius: 15px;
     width: 500px;
-    min-height: 200px;
+    min-height: 400px;
     background-color: #363535;
     align-items: center;
     margin: 0 auto;
@@ -37,6 +37,7 @@
     margin: 0 auto;
     justify-content: center;
     align-items: center;
+    flex:1;
 }
 
 .submission-null button{

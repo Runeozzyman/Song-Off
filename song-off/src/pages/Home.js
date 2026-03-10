@@ -17,7 +17,10 @@ import Leaderboard from '../components/Leaderboard';
 
       <div className='song-panel'>
           <User_Submission/>
-          <Promoted_Song/>
+          <div className='promoted-song-wrapper'>
+            <Promoted_Song/>
+          </div>
+          
       </div>
 
     </div>
