@@ -32,4 +32,5 @@
 
 .spotify-preview-info:hover{
     color: #fff702cc;
+    cursor:pointer;
 }
