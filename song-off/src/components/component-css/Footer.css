@@ -36,3 +36,12 @@
 .footer-right a:hover {
   color: #fff702cc;
 }
+
+.footer-center a{
+  text-decoration: none;
+  color: #fff702cc;
+}
+
+.footer-center a:hover{
+  opacity: 0.7;
+}

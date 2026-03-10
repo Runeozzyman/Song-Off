@@ -1,6 +1,6 @@
 import React from 'react';
 import './component-css/Footer.css';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaSpotify } from 'react-icons/fa';
 
   const Footer = () =>  {
 	return (
@@ -8,6 +8,12 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
         
         <div className='footer-left'>
         <a href="https://www.vecteezy.com/free-png/amplifier">Amplifier PNGs by Vecteezy</a>
+        </div>
+
+        <div className="footer-center">
+        <a href="https://open.spotify.com/playlist/1nzGNqnfiCONm67MogkZxg?si=a66af0f256a94622">
+          <FaSpotify size={25}/>
+        </a>
         </div>
 
         <div className='footer-right'>
@@ -19,6 +25,8 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
             <FaLinkedin size={25}/>
         </a>
         </div>
+
+        
         
 	  </div>
 	);
