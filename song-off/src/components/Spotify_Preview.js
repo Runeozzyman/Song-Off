@@ -32,6 +32,7 @@ const Spotify_Preview = ({trackID, image}) =>  {
       const res = await fetch(`http://localhost:4000/api/spotify/oembed/${trackID}`);
       const data = await res.json();
       setMeta(data);
+      console.log(data);
     } catch (err) {
       console.error("Failed to fetch Spotify metadata", err);
     }
@@ -49,7 +50,10 @@ const Spotify_Preview = ({trackID, image}) =>  {
     {meta ? (
       <>
         <img src={meta.thumbnail} alt="Album cover" />
-        <div className="spotify-preview-info">{meta.title}</div>
+        <div className="spotify-preview-info">
+          {meta.title}
+        </div>
+
       </>
     ) : (
       <div className="spotify-loading">{loader}</div>

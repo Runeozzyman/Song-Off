@@ -49,6 +49,10 @@
   font-weight:200;
   font-size:18px;
   opacity:0.8;
+
+  min-width: 70px;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .full-leaderboard-row{
