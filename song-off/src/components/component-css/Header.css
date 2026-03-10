@@ -12,6 +12,22 @@
   background-color: #363535;
 }
 
+.header-navbar-left{
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  left:30px;
+  gap:30px;
+}
+
+.header-navbar-left a{
+  text-decoration: none;
+  color: #fff702cc; 
+}
+
+.header-navbar-left a:hover{
+  opacity: 0.7;
+}
 
 .header-center {
   display: flex;
@@ -19,6 +35,9 @@
   align-items: center;
 }
 
+.header-center a:hover{
+  opacity: 0.7;
+}
 
 .header-nav {
   position: absolute;
@@ -31,6 +50,7 @@
 .header-nav a {
   text-decoration: none;
   color: #fff702cc;
+  font-weight: 200;
 }
 
 .header-nav a:hover {

@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import './component-css/Header.css';
 import { supabase } from '../lib/supabase';
 import { Link } from 'react-router-dom';
+import { FaHome, FaVoteYea } from "react-icons/fa";
+import { MdLeaderboard } from "react-icons/md";
 
   const Header = () =>  {
     
@@ -36,6 +38,15 @@ import { Link } from 'react-router-dom';
 	return (
     
   <div className="header">
+
+  {user &&
+    <div className='header-navbar-left'>
+      <Link to="/home"><FaHome size={40}/></Link>
+      <Link to="/leaderboard"><MdLeaderboard size={40}/></Link>
+      <Link to="/submit"><FaVoteYea size={40}/></Link>
+    </div>
+  }
+
 
     <div className="header-center">
         <Link to="/" className="logo">
