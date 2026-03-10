@@ -4,6 +4,7 @@ import { getTopNSongs } from '../services/songService';
 import { Audio } from 'react-loader-spinner';
 import './page-css/Full_Leaderboard.css';
 import Spotify_Preview from '../components/Spotify_Preview';
+import useProtect from '../hooks/useProtect';
   
   const Full_Leaderboard = () =>  {
 
@@ -27,6 +28,9 @@ import Spotify_Preview from '../components/Spotify_Preview';
 
   getTop50Songs();
 }, []);
+
+  const checking = useProtect();
+  if(!checking) return null;
 
 	return (
   <div className="full-leaderboard">

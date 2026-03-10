@@ -1,6 +1,7 @@
 import React from 'react';
 import { getCurrentUser, userLogout } from '../services/userService';
 import { useNavigate } from 'react-router-dom';
+import useProtect from '../hooks/useProtect';
   
   const Profile = () =>  {
 
@@ -16,6 +17,9 @@ import { useNavigate } from 'react-router-dom';
             console.error(err);
         }
     }
+
+    const checking = useProtect();
+    if(!checking) return null;
 
 	return (
 	  <div>
