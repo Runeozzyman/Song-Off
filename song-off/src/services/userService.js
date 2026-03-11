@@ -56,11 +56,31 @@ export async function getUserProfile() {
 
   const {data, error} = await supabase
     .from("profiles")
-    .select("bio, fav_genre")
+    .select("bio, fav_genre, fav_song")
     .eq("username", user.user_metadata.username)
     .single();
 
   if (error) throw error;
 
   return data;
+}
+
+export async function updateProfile({bio, fav_genre, fav_song}){
+
+  const user = await getCurrentUser();
+
+  const {data, error} = await supabase
+    .from("profiles")
+    .upsert({
+      id: user.id,
+      bio: bio,
+      fav_genre: fav_genre,
+      fav_song: fav_song
+    })
+    .select();
+
+    if (error) throw error;
+
+    return data;
+
 }

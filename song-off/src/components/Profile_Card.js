@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getCurrentUser, getUserProfile, userLogout } from '../services/userService';
+import { getCurrentUser, getUserProfile, updateProfile, userLogout } from '../services/userService';
 import { useNavigate } from 'react-router-dom';  
 import useProtect from '../hooks/useProtect';
 import './component-css/Profile_Card.css';
@@ -10,6 +10,9 @@ import './component-css/Profile_Card.css';
 	const [username, setUsername] = useState(null);
 	const [bio, setBio] = useState(null);
 	const [favGenre, setFavGenre] = useState(null);
+	const [favSong, setFavSong] = useState(null)
+	const [isEditing, setIsEditing] = useState(false);
+
 
 	async function handleLogout(){
 		try{
@@ -21,8 +24,21 @@ import './component-css/Profile_Card.css';
 		}
 	}
 
+	async function handleSave(){ 
+
+		await updateProfile({
+			bio: bio,
+			fav_genre: favGenre,
+			fav_song: favSong
+		});
+
+		
+
+		setIsEditing(false);
+	}
+
 	useEffect(() =>{
-		async function getProfileInfo(params) {
+		async function getProfileInfo() {
 
 			const uname = sessionStorage.getItem("username")
 			setUsername(uname)
@@ -32,6 +48,7 @@ import './component-css/Profile_Card.css';
 			
 			setBio(data.bio);
 			setFavGenre(data.fav_genre);
+			setFavSong(data.fav_song);
 		}
 		getProfileInfo();
 	}, [])
@@ -40,22 +57,81 @@ import './component-css/Profile_Card.css';
 	if(!checking) return null;
 
 	return (
-	  <div className='profile'>
-		
-		<div className='profile-header'>
-			<h1>{username}</h1>
+	<div className='profile'>
+
+		<div className='profile-left'>
+			<img 
+			className="profile-pfp"
+			src="/Default_pfp.png"
+			alt="profile"
+			/>
+
+			<h3>Bio</h3>
+			<div className='profile-bio'>
+
+			{isEditing ? (
+				<textarea
+				value={bio}
+				onChange={(e) => setBio(e.target.value)}
+				/>
+			) : (
+				<p>{bio}</p>
+			)}
+
+			</div>
 		</div>
 
-		<p className='profile-genre'>Favourite Genre: {favGenre}</p>
+		<div className='profile-right'>
 
-		<p className='profile-info'>
-		<h3>Bio</h3>
-		{bio}
-		</p>
+			<div className='profile-header'>
+			<h1>{username}</h1>
+			</div>
 
-		<button>Edit Profile</button>
-		<button onClick={handleLogout}>Logout</button>
-	  </div>
+			<div className='profile-info'>
+			<p>
+				Favourite Genre:{" "}
+				{isEditing ? (
+					<input
+					value={favGenre}
+					onChange={(e) => setFavGenre(e.target.value)}
+					/>
+				) : (
+					favGenre
+				)}
+			</p>
+			
+			<p>	
+				Favourite Song: {" "}
+				{isEditing ? (
+					<input
+					value={favSong}
+					onChange={(e) => setFavSong(e.target.value)}
+				    />
+				) : (
+					favSong
+				)}
+			</p>
+			</div>
+
+			<div className='buttons'>
+
+			{isEditing ? (
+			<>
+				<button onClick={handleSave}>Save</button>
+				<button onClick={() => setIsEditing(false)}>Cancel</button>
+			</>
+			) : (
+			<>
+				<button onClick={() => setIsEditing(true)}>Edit Profile</button>
+				<button onClick={handleLogout}>Logout</button>
+			</>
+			)}
+
+			</div>
+
+		</div>
+
+	</div>
 	  
 	);
   }

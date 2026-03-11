@@ -4,10 +4,10 @@ import App_Description from '../components/App_Description';
 
   const Landing = () =>  {
 	return (
-	  <>
+	  <div className='landing-container'>
         <App_Description />
         <Home />
-	  </>
+	  </div>
 	);
   }
   

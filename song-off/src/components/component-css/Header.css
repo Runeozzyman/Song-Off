@@ -10,6 +10,7 @@
   line-height: 1.1;
   margin-bottom: 40px;
   background-color: #363535;
+  min-width: fit-content;
 }
 
 .header-navbar-left{
