@@ -71,6 +71,7 @@ import './component-css/Profile_Card.css';
 
 			{isEditing ? (
 				<textarea
+				maxLength={200}
 				value={bio}
 				onChange={(e) => setBio(e.target.value)}
 				/>

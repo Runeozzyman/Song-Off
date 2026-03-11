@@ -47,6 +47,13 @@
     box-sizing: border-box;
 }
 
+.profile-bio textarea{
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    resize: none;
+}
+
 .profile-bio p{
     margin: 5px 0 0 0;
 }
@@ -67,6 +74,7 @@
     flex-direction:column;
     gap:12px;
     font-weight: 200;
+    font-size: larger;
 }
 
 .profile-info h3{

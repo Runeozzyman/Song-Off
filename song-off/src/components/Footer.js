@@ -11,7 +11,7 @@ import { FaGithub, FaLinkedin, FaSpotify } from 'react-icons/fa';
         </div>
 
         <div className="footer-center">
-        <a href="https://open.spotify.com/playlist/1nzGNqnfiCONm67MogkZxg?si=a66af0f256a94622">
+        <a href="https://open.spotify.com/playlist/1nzGNqnfiCONm67MogkZxg?si=a66af0f256a94622" target='_blank'>
           <FaSpotify size={25}/>
         </a>
         </div>
