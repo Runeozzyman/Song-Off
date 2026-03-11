@@ -10,6 +10,26 @@
   z-index: 10;
 }
 
+.footer-left,
+.footer-center,
+.footer-right {
+  flex: 1;
+}
+
+.footer-left {
+  text-align: left;
+}
+
+.footer-center {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .footer-left {
   text-align: left;
 }
@@ -40,8 +60,11 @@
 .footer-center a{
   text-decoration: none;
   color: #fff702cc;
+  align-items: center;
+  justify-content: center;
 }
 
 .footer-center a:hover{
+  color: #1DB954;
   opacity: 0.7;
 }

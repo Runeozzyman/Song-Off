@@ -1,0 +1,15 @@
+.profile{
+    display:flex;
+    flex-direction: column;
+    width:40vw;
+    margin: 0 auto;
+    align-items: center;
+    background-color: #363535;
+    height: 80vh;
+    border-radius: 15px;
+    font-weight: 200;
+}
+
+.profile-header{
+
+}

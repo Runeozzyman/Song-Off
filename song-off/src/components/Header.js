@@ -19,6 +19,7 @@ import { MdLeaderboard } from "react-icons/md";
     if (usr) {
       const uname = await getUsername();
       setUsername(uname);
+      sessionStorage.setItem("username", uname);
     } else {
       setUsername(null);
     }

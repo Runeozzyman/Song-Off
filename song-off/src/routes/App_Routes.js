@@ -22,9 +22,8 @@ import Full_Leaderboard from '../pages/Full_Leaderboard';
                     <Route path="leaderboard" element={<Full_Leaderboard />}></Route>
                   </Route>
 
-                  
-                  <Route path="submit" element={<Submission_Page/>}></Route>
                   <Route path = "/profile" element={<Profile/>}></Route>
+                  <Route path="submit" element={<Submission_Page/>}></Route>
                   <Route path = "/home" element = {<Home/>}></Route>
         
               </Routes>

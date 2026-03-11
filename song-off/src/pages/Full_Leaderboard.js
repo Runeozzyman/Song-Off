@@ -13,8 +13,8 @@ import useProtect from '../hooks/useProtect';
     const [error, setError] = useState(null);
     const [testBool, setTestBool] = useState(true);
 
-    useEffect(() => {
-  async function getTop50Songs() {
+  useEffect(() => {
+    async function getTop50Songs() {
     try {
       const res = await getTopNSongs(50);
       setSongs(res);

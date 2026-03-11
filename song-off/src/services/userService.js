@@ -50,3 +50,17 @@ export async function userLogout(){
   return;
 }
 
+export async function getUserProfile() {
+
+  const user = await getCurrentUser();
+
+  const {data, error} = await supabase
+    .from("profiles")
+    .select("bio, fav_genre")
+    .eq("username", user.user_metadata.username)
+    .single();
+
+  if (error) throw error;
+
+  return data;
+}

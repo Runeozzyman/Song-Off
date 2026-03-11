@@ -2,30 +2,13 @@ import React from 'react';
 import { getCurrentUser, userLogout } from '../services/userService';
 import { useNavigate } from 'react-router-dom';
 import useProtect from '../hooks/useProtect';
+import Profile_Card from '../components/Profile_Card';
   
   const Profile = () =>  {
 
-    const navigate = useNavigate();
-
-    async function handleLogout() {
-        try{
-            await userLogout();
-            await getCurrentUser();
-            navigate("/")
-        }
-        catch (err) {
-            console.error(err);
-        }
-    }
-
-    const checking = useProtect();
-    if(!checking) return null;
-
 	return (
 	  <div>
-        <h1>Profile Page</h1>
-            <button onClick={handleLogout}>Logout</button>
-        
+        <Profile_Card />
 	  </div>
 	);
   }
