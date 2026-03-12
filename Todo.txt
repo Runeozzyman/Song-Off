@@ -3,5 +3,5 @@ Last accomplished: added custom PFP Uploads with supabase storage bucket
 TODO:
 - add friends functionality / friends list
 - add weekly reset
-
+- look into hosting (vercel?)
 
