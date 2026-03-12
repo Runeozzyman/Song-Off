@@ -2,11 +2,12 @@
 
 # Introduction
 
-"Song Off" is a site where people come to put their music knowledge to the test, and compete against their friends. In the beginning, a random theme is selected and presented to the players. The players then select a song that they feel best fits the selected theme. The choices are then forwarded to an AI judge which then chooses which of the selections it determines is the best fit, and awards the winner points.
+"Song Off" is a site where people come to support their favourite artists by voting on their favourite song of the week. The top 50 songs of each week are shown on a leaderboard along with how many people voted for each respective song. 
+To accompany the top songs of each week, there is a Spotify Playlist linked in the footer of the page that automatically updates to reflect the top 50 songs of the week.
 
 # Tech Stack
 
-**Frontend**: React, CSS
+**Frontend**: React
     - react-router-dom
     - react-icons
 
@@ -36,8 +37,12 @@
 7. **Implementing client-side DB endpoints with `Supabase`**
     - Supabase uses RLS, so client-side DB logic/endpoints are secured and restricted to only that user
 
-8. **Using `Supabase Presence` to replace lobby logic**
-    - This simplified my database queries significantly, and replaces all create,delete, and update logic with a single subscription method
+8. **Creating custom hooks**
+    - Created a custom hook for protecting pages that require authentication
+  
+9. **How to handle different states and implement conditional rendering**
+    - Ternary operator
+
 
 
 
