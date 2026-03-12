@@ -3,5 +3,6 @@ Last accomplished: added header nav bar for various pages, and related page prot
 TODO:
 - flesh out profile page w/ bio, favourite genre, profile pic
 - add friends functionality / friends list
+- add weekly reset
 
 
