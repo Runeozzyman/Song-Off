@@ -1,7 +1,6 @@
-Last accomplished: added header nav bar for various pages, and related page protection for pages that require authentication, fixed various css issues
+Last accomplished: added custom PFP Uploads with supabase storage bucket
 
 TODO:
-- flesh out profile page w/ bio, favourite genre, profile pic
 - add friends functionality / friends list
 - add weekly reset
 

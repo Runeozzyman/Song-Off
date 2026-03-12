@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { getCurrentUser, getUserProfile, updateProfile, userLogout } from '../services/userService';
+import React, { useEffect, useState, useRef } from 'react';
+import { getCurrentUser, getUserProfile, updateProfile, updateUserAvatar, userLogout } from '../services/userService';
 import { useNavigate } from 'react-router-dom';  
 import useProtect from '../hooks/useProtect';
 import './component-css/Profile_Card.css';
+import { uploadProfilePicture } from '../services/storageService';
 
   const Profile_Card = () =>  {
 
@@ -12,7 +13,21 @@ import './component-css/Profile_Card.css';
 	const [favGenre, setFavGenre] = useState(null);
 	const [favSong, setFavSong] = useState(null)
 	const [isEditing, setIsEditing] = useState(false);
+	const [pfp, setPfp] = useState("/Default_pfp.png");
 
+	const fileInputRef = useRef(null);
+
+	async function handleProfilePictureChange(e){
+		const file = e.target.files[0];
+		if (!file) return;
+
+		const avatarURL = await uploadProfilePicture(file);
+		await updateUserAvatar(avatarURL);
+
+		setPfp(avatarURL);
+
+		e.target.value = null;
+	}
 
 	async function handleLogout(){
 		try{
@@ -49,6 +64,7 @@ import './component-css/Profile_Card.css';
 			setBio(data.bio);
 			setFavGenre(data.fav_genre);
 			setFavSong(data.fav_song);
+			setPfp(data.pfp_url || pfp);
 		}
 		getProfileInfo();
 	}, [])
@@ -62,8 +78,17 @@ import './component-css/Profile_Card.css';
 		<div className='profile-left'>
 			<img 
 			className="profile-pfp"
-			src="/Default_pfp.png"
+			src={pfp}
 			alt="profile"
+			onClick={() => fileInputRef.current.click()}
+			/>
+
+			<input
+			type="file"
+			accept="image/*"
+			ref={fileInputRef}
+			style={{ display: "none" }}
+			onChange={handleProfilePictureChange}
 			/>
 
 			<h3>Bio</h3>

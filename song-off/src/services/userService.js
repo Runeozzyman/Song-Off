@@ -33,6 +33,13 @@ export async function userLogin(email, password) {
 
 }
 
+export async function userLogout(){
+  const{error} = await supabase.auth.signOut();
+
+  if (error) throw error;
+  return;
+}
+
 export async function getCurrentUser() {
     const {data} = await supabase.auth.getSession();
     return data.session?.user ?? null;
@@ -43,20 +50,13 @@ export async function getUsername() {
   return user.user_metadata.username;
 }
 
-export async function userLogout(){
-  const{error} = await supabase.auth.signOut();
-
-  if (error) throw error;
-  return;
-}
-
 export async function getUserProfile() {
 
   const user = await getCurrentUser();
 
   const {data, error} = await supabase
     .from("profiles")
-    .select("bio, fav_genre, fav_song")
+    .select("bio, fav_genre, fav_song, pfp_url")
     .eq("username", user.user_metadata.username)
     .single();
 
@@ -83,4 +83,22 @@ export async function updateProfile({bio, fav_genre, fav_song}){
 
     return data;
 
+}
+
+export async function updateUserAvatar(avatarURL){
+
+  const user = await getCurrentUser();
+
+  const {data, error} = await supabase
+    .from("profiles")
+    .update({pfp_url: avatarURL})
+    .eq("id", user.id)
+    .select();
+
+  if (error){
+    console.error("Error updating user profile")
+    throw error;
+  }
+
+  console.log("Profile updated: ", data);
 }
