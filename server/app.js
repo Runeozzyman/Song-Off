@@ -2,6 +2,7 @@ import "dotenv/config";
 import express from 'express';
 import cors from 'cors';
 import "./cron/playlistCron.js";
+//ADD: import "./cron/weeklyResetCron.js"; ONCE READY TO HOST
 import { getSpotifyToken } from './routes/spotify_auth.js';
 import { getSpotifyUserAccessToken } from "./routes/spotify_auth.js";
 import { getTopNSongs } from "./services/songService.js";
