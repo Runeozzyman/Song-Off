@@ -5,7 +5,7 @@ import BackgroundImage from './components/BackgroundImage';
 import Footer from './components/Footer';
 import App_Routes from './routes/App_Routes';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import { useTop25PlaylistUpdater } from './hooks/useSpotifyPlaylistUpdater';
+
 
 
 function App() {

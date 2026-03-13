@@ -1,7 +1,8 @@
 import cron from 'node-cron';
 import { updatePlaylist } from '../jobs/updatePlaylist.js';
 
-cron.schedule("*/1 * * * *", async () => {
+//CRON Syntax: min hr day month weekday
+cron.schedule("0 * * * *", async () => {
   console.log("Running hourly playlist update");
 
   try {
