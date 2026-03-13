@@ -74,10 +74,10 @@
     flex-direction:column;
     gap:12px;
     font-weight: 200;
-    font-size: larger;
+    font-size: x-large;
 }
 
-.profile-info h3{
+.profile-info h2{
     font-weight: 200;
 }
 
@@ -89,4 +89,12 @@
 
 .profile-pfp{
     cursor:pointer;
+}
+
+.genre-span{
+    color: #fff702cc;
+}
+
+.song-span{
+    color: #fff702cc;
 }

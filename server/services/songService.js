@@ -9,3 +9,18 @@ export async function getTopNSongs(numSongs = 10) {
     
     return data;
 }
+
+export async function resetSubmissions(){
+
+    const {error} = await supabase
+        .from("profiles")
+        .update({submitted_track_id: null})
+        .neq("id",0);
+    
+    if (error){
+        console.error("Error resetting submissions");
+        throw error;
+    }
+
+    console.log("Weekly Submissions Reset");
+}

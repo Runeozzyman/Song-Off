@@ -61,9 +61,9 @@ import { uploadProfilePicture } from '../services/storageService';
 			const data = await getUserProfile();
 			console.log("DATA: ", data);
 			
-			setBio(data.bio);
-			setFavGenre(data.fav_genre);
-			setFavSong(data.fav_song);
+			setBio(data.bio || "Add a bio!");
+			setFavGenre(data.fav_genre || "Add your favourite genre!");
+			setFavSong(data.fav_song || "What's your favourite song?");
 			setPfp(data.pfp_url || pfp);
 		}
 		getProfileInfo();
@@ -115,7 +115,7 @@ import { uploadProfilePicture } from '../services/storageService';
 
 			<div className='profile-info'>
 			<p>
-				Favourite Genre:{" "}
+				<span className='genre-span'>Favourite Genre:{" "}</span>
 				{isEditing ? (
 					<input
 					value={favGenre}
@@ -127,7 +127,7 @@ import { uploadProfilePicture } from '../services/storageService';
 			</p>
 			
 			<p>	
-				Favourite Song: {" "}
+				<span className='song-span'>Favourite Song: {" "}</span>
 				{isEditing ? (
 					<input
 					value={favSong}

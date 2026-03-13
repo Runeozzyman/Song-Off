@@ -17,11 +17,11 @@ import { FaGithub, FaLinkedin, FaSpotify } from 'react-icons/fa';
         </div>
 
         <div className='footer-right'>
-        <a href="https://github.com/Runeozzyman/Song-Off" aria-label='GitHub' target='_blank'>
+        <a href="https://github.com/Runeozzyman/Song-Off" aria-label='GitHub' target='_blank' id='github'>
             <FaGithub size={25}/>
         </a>
         
-        <a href="https://www.linkedin.com/in/austinwort/" aria-label='LinkedIn' target='_blank'>
+        <a href="https://www.linkedin.com/in/austinwort/" aria-label='LinkedIn' target='_blank' id='linkedin'>
             <FaLinkedin size={25}/>
         </a>
         </div>

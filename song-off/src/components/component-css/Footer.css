@@ -53,9 +53,7 @@
   text-decoration: none;
 }
 
-.footer-right a:hover {
-  color: #fff702cc;
-}
+
 
 .footer-center a{
   text-decoration: none;
@@ -67,4 +65,12 @@
 .footer-center a:hover{
   color: #1DB954;
   opacity: 0.7;
+}
+
+#github:hover{
+ color:#8534F3;
+}
+
+#linkedin:hover{
+ color:#0077B5; 
 }
