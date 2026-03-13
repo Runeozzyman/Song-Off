@@ -10,8 +10,6 @@ import { useTop25PlaylistUpdater } from './hooks/useSpotifyPlaylistUpdater';
 
 function App() {
 
-  useTop25PlaylistUpdater();
-
 return (
 <BrowserRouter>
   <div className="AppRoot">

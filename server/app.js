@@ -1,8 +1,10 @@
 import "dotenv/config";
 import express from 'express';
 import cors from 'cors';
+import "./cron/playlistCron.js";
 import { getSpotifyToken } from './routes/spotify_auth.js';
 import { getSpotifyUserAccessToken } from "./routes/spotify_auth.js";
+import { getTopNSongs } from "./services/songService.js";
 
 const router = express.Router();
 const app = express();
@@ -10,6 +12,7 @@ const PORT = 4000;
 app.use(cors());
 app.use(express.json());
 
+console.log("server running");
 
 app.get('/' , (req, res) =>{
     res.json('root port')
@@ -90,13 +93,19 @@ app.get("/api/spotify/search", async (req, res) => {
 
 const PLAYLIST_ID = process.env.SPOTIFY_PLAYLIST_ID;
 
+//update spotify playlist DELETE -------------------------------
 app.post("/api/spotify/update-playlist", async (req, res) => {
   try {
-    const { uris } = req.body;
-    if (!uris || !uris.length) return res.status(400).json({ error: "No tracks provided" });
+
+    const songs = await getTopNSongs(50);
+
+    if (!songs || songs.length === 0) {
+      return res.status(400).json({ error: "No songs found" });
+    }
+
+    const uris = songs.map(song => song.spotify_uri);
 
     const accessToken = await getSpotifyUserAccessToken();
-    console.log(accessToken);
 
     const response = await fetch(
       `https://api.spotify.com/v1/playlists/${PLAYLIST_ID}/tracks`,
@@ -116,12 +125,16 @@ app.post("/api/spotify/update-playlist", async (req, res) => {
     }
 
     res.json({ message: "Playlist updated successfully!" });
+
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: "Failed to update playlist" });
   }
 });
+//--------------------------------------------------------------
 
+
+//get spotify metadata for previews
 app.get('/api/spotify/oembed/:trackID', async(req,res) =>{
   const { trackID } = req.params;
   try {
