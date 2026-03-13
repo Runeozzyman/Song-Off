@@ -7,13 +7,8 @@ export async function updatePlaylist() {
 
   const songs = await getTopNSongs(25);
 
-  console.log("PLAYLIST ID:", PLAYLIST_ID);
-  console.log("----------------------------")
-  console.log("SONGS:", songs);
-  console.log("----------------------------")
-
   if (!songs || songs.length === 0) {
-    console.log("No songs found");
+    console.log("[Playlist Cron] No songs found");
     return;
   }
 
