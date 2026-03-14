@@ -2,7 +2,7 @@ import "dotenv/config";
 import express from 'express';
 import cors from 'cors';
 import "./cron/playlistCron.js";
-//ADD: import "./cron/weeklyResetCron.js"; ONCE READY TO HOST
+import "./cron/weeklyResetCron.js";
 import { getSpotifyToken } from './routes/spotify_auth.js';
 import { getSpotifyUserAccessToken } from "./routes/spotify_auth.js";
 import { getTopNSongs } from "./services/songService.js";
@@ -19,7 +19,7 @@ app.get('/' , (req, res) =>{
     res.json('root port')
 });
 
-//authenticate API use
+//authenticate spotify API use
 app.get("/api/spotify/token", async (req, res) => {
   try {
     const token = await getSpotifyToken();
@@ -93,47 +93,6 @@ app.get("/api/spotify/search", async (req, res) => {
 });
 
 const PLAYLIST_ID = process.env.SPOTIFY_PLAYLIST_ID;
-
-//update spotify playlist DELETE -------------------------------
-app.post("/api/spotify/update-playlist", async (req, res) => {
-  try {
-
-    const songs = await getTopNSongs(50);
-
-    if (!songs || songs.length === 0) {
-      return res.status(400).json({ error: "No songs found" });
-    }
-
-    const uris = songs.map(song => song.spotify_uri);
-
-    const accessToken = await getSpotifyUserAccessToken();
-
-    const response = await fetch(
-      `https://api.spotify.com/v1/playlists/${PLAYLIST_ID}/tracks`,
-      {
-        method: "PUT",
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ uris }),
-      }
-    );
-
-    if (!response.ok) {
-      const errorData = await response.json();
-      return res.status(500).json({ error: "Spotify API error", details: errorData });
-    }
-
-    res.json({ message: "Playlist updated successfully!" });
-
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Failed to update playlist" });
-  }
-});
-//--------------------------------------------------------------
-
 
 //get spotify metadata for previews
 app.get('/api/spotify/oembed/:trackID', async(req,res) =>{

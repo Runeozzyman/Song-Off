@@ -1,13 +1,13 @@
 import cron from 'node-cron';
-import { runSubmissionReset } from '../jobs/resetLeaderboard';
+import { runSubmissionReset } from '../jobs/resetLeaderboard.js';
 
-//CRON Syntax: min hr day month weekday -> This runs every sunday at midnight
+//CRON Syntax: min hr day month weekday -> This runs every sunday at midnight 0 0 * * 0
 cron.schedule("0 0 * * 0", async () => {
     console.log("[RESET CRON] Running weeekly reset")
 
     try{
         await runSubmissionReset();
     } catch(err){
-        console.error("Reset cron failed");
+        console.error("Reset cron failed", err);
     }
 });

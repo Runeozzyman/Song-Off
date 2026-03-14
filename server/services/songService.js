@@ -15,10 +15,10 @@ export async function resetSubmissions(){
     const {error} = await supabase
         .from("profiles")
         .update({submitted_track_id: null})
-        .neq("id",0);
-    
+        .neq("id", "00000000-0000-0000-0000-000000000000"); //For selecting all users
+        
     if (error){
-        console.error("Error resetting submissions");
+        console.error("Error resetting submissions", error);
         throw error;
     }
 

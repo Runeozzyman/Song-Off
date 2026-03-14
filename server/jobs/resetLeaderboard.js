@@ -6,7 +6,7 @@ export async function runSubmissionReset() {
     try{
         await resetSubmissions();
     } catch (err){
-        console.error("Submission reset failed");
+        console.error("Submission reset failed", err);
     }
     
 }

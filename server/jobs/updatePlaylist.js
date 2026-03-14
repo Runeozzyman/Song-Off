@@ -4,16 +4,8 @@ import { getSpotifyUserAccessToken } from "../routes/spotify_auth.js";
 export async function updatePlaylist() {
 
   const PLAYLIST_ID = process.env.SPOTIFY_PLAYLIST_ID;
-
   const songs = await getTopNSongs(25);
-
-  if (!songs || songs.length === 0) {
-    console.log("[Playlist Cron] No songs found");
-    return;
-  }
-
   const uris = songs.map(song => `spotify:track:${song.submitted_track_id}`);
-
   const accessToken = await getSpotifyUserAccessToken();
 
   const response = await fetch(
