@@ -1,5 +1,5 @@
 Last accomplished: added weekly reset logic and offloaded playlist updating to backend using CRON scheduling, small css fixes
 
 TODO:
-- look into hosting (vercel?)
+- look into hosting (vercel for frontend, Railway for backend?)
 
