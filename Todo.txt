@@ -1,6 +1,5 @@
-Last accomplished: added custom PFP Uploads with supabase storage bucket
+Last accomplished: added weekly reset logic and offloaded playlist updating to backend using CRON scheduling, small css fixes
 
 TODO:
-- add weekly reset
 - look into hosting (vercel?)
 
