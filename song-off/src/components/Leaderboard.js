@@ -30,11 +30,15 @@ const Leaderboard = () => {
 
   return (
     <div className="leaderboard">
-      <div className="leaderboard-header">
-        <h1>Top 10</h1>
-      </div>
+  <div className="leaderboard-header">
+    <h1>Top 10</h1>
+  </div>
 
-      <div className="leaderboard-list">
+  <div className="leaderboard-list">
+    {!songs || songs.length === 0 ? (
+      <div className="leaderboard-empty"><h1>Be the first to vote!</h1></div>
+    ) : (
+      <>
         {songs.map((song, index) => (
           <div key={song.submitted_track_id} className="leaderboard-item">
             <div className="rank">{index + 1}</div>
@@ -51,8 +55,10 @@ const Leaderboard = () => {
             See full leaderboard here
           </div>
         </Link>
-      </div>
-    </div>
+      </>
+    )}
+  </div>
+</div>
   );
 };
 

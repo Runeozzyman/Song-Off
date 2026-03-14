@@ -34,18 +34,21 @@ import useProtect from '../hooks/useProtect';
 
 	return (
   <div className="full-leaderboard">
-    <div className="full-leaderboard-header">
-      <h1>Top 50</h1>
-    </div>
-    <div className='divider'></div>
+  <div className="full-leaderboard-header">
+    <h1>Top 50</h1>
+  </div>
 
-    <div className="leaderboard-list">
+  <div className="divider"></div>
+
+  <div className="leaderboard-list">
+    {!songs || songs.length === 0 ? (
+      <div className="leaderboard-empty"><h1>Be the first to vote!</h1></div>
+    ) : (
       <div className="full-leaderboard-items">
         {songs.map((song, index) => (
           <div key={song.submitted_track_id} className="full-leaderboard-row">
             <div className="full-leaderboard-rank">{index + 1}</div>
 
-            
             <Spotify_Preview
               trackID={song.submitted_track_id}
               image={song.album_image}
@@ -57,8 +60,9 @@ import useProtect from '../hooks/useProtect';
           </div>
         ))}
       </div>
-    </div>
+    )}
   </div>
+</div>
 );
 }
   
