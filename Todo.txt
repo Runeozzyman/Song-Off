@@ -1,5 +1,5 @@
-Last accomplished: added weekly reset logic and offloaded playlist updating to backend using CRON scheduling, small css fixes
+Last accomplished: hosted backend w Railway, hosted frontend w Vercel
 
 TODO:
-- look into hosting (vercel for frontend, Railway for backend?)
+- alter css to adapt to smaller screen sizes
 
