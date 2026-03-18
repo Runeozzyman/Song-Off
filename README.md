@@ -14,7 +14,7 @@ As of now, Song Off is accessible! I hosted the app using Render and Vercel, and
 
 **Backend**: Node.js / Express , Supabase
 
-## What I’ve Learned So Far
+## What I Learned During this Project
 
 1. **Setting up a proper React project structure**
    - Organizing files into `components`, `pages`, `layouts`, and `assets`.
