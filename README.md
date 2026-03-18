@@ -1,9 +1,10 @@
 # Song Off
 
+As of now, Song Off is accessible! I hosted the app using Render and Vercel, and you can check it out here : https://song-off.vercel.app 
+
 # Introduction
 
-"Song Off" is a site where people come to support their favourite artists by voting on their favourite song of the week. The top 50 songs of each week are shown on a leaderboard along with how many people voted for each respective song. 
-To accompany the top songs of each week, there is a Spotify Playlist linked in the footer of the page that automatically updates to reflect the top 50 songs of the week.
+"Song Off" is a site where people come to support their favourite artists by voting on their favourite song of the week. The top 50 songs of each week are shown on a leaderboard along with how many people voted for each respective song. To accompany the top songs of each week, there is a Spotify Playlist linked in the footer of the page that automatically updates to reflect the top 25 songs of the week.
 
 # Tech Stack
 
@@ -11,7 +12,7 @@ To accompany the top songs of each week, there is a Spotify Playlist linked in t
     - react-router-dom
     - react-icons
 
-**Backend**: Node.js / Express
+**Backend**: Node.js / Express , Supabase
 
 ## What I’ve Learned So Far
 
@@ -32,7 +33,7 @@ To accompany the top songs of each week, there is a Spotify Playlist linked in t
 5. **Using Declarative design rather than Imperative**
    - Using declarative design helps to abstract away low-level DOM manipulation
 
-6. **Using sesion storage to store commonly used data**
+6. **Using session storage to store commonly used data**
 
 7. **Implementing client-side DB endpoints with `Supabase`**
     - Supabase uses RLS, so client-side DB logic/endpoints are secured and restricted to only that user
@@ -42,6 +43,9 @@ To accompany the top songs of each week, there is a Spotify Playlist linked in t
   
 9. **How to handle different states and implement conditional rendering**
     - Ternary operator
+
+10. **How to create and schedule CRON jobs to automatically reset the leaderboard at a specified time each week**
+    - Additionally created fallback logic to trigger the reset if backend service is asleep at reset time
 
 
 
