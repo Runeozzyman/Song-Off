@@ -3,7 +3,7 @@ import { runSubmissionReset } from '../jobs/resetLeaderboard.js';
 
 //CRON Syntax: min hr day month weekday -> This runs every sunday at midnight 0 0 * * 0
 cron.schedule("0 0 * * 0", async () => {
-    console.log("[RESET CRON] Running weeekly reset")
+    console.log("[RESET CRON] Running weekly reset")
 
     try{
         await runSubmissionReset();
