@@ -9,11 +9,11 @@ import { getTopNSongs } from "./services/songService.js";
 
 const router = express.Router();
 const app = express();
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 app.use(cors());
 app.use(express.json());
 
-console.log("server running");
+console.log("server running on port: ", PORT);
 
 app.get('/' , (req, res) =>{
     res.json('root port')

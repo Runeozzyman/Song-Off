@@ -15,7 +15,7 @@ const Promoted_Song = () => {
   async function fetchPromotedSong() {
     try {
       const res = await fetch(
-        `http://localhost:4000/api/spotify/track/${PROMOTED_TRACK_ID}`
+        `${process.env.REACT_APP_API_URL}/api/spotify/track/${PROMOTED_TRACK_ID}`
       );
 
       if (!res.ok) throw new Error("Failed request");

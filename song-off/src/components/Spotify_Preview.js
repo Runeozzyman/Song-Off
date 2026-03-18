@@ -29,7 +29,7 @@ const Spotify_Preview = ({trackID, image}) =>  {
 
   async function fetchMeta() {
     try {
-      const res = await fetch(`http://localhost:4000/api/spotify/oembed/${trackID}`);
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/spotify/oembed/${trackID}`);
       const data = await res.json();
       setMeta(data);
       console.log(data);

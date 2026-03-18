@@ -42,7 +42,7 @@ const Search_Song = () => {
   const delay = setTimeout(async () => {
     try {
       const res = await fetch(
-        `http://localhost:4000/api/spotify/search?q=${query}`
+        `${process.env.REACT_APP_API_URL}/api/spotify/search?q=${query}`
       );
       const data = await res.json();
       setTracks(data);
