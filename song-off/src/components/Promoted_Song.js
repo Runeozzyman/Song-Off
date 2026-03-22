@@ -3,7 +3,7 @@ import './component-css/Promoted_Song.css'
 import Spotify_Player from "./Spotify_Player";
 import { useState, useEffect } from 'react';
   
-const PROMOTED_TRACK_ID = "2Q4YLDAnY4IXqXk9nbzbfb";
+const PROMOTED_TRACK_ID = "1sjrDQXqAa9V07FjKIlAQ4";
 
 const Promoted_Song = () => {
   const [song, setSong] = useState(null);
