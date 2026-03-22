@@ -17,9 +17,10 @@
 }
 
 .App-Description-box p {
-    font-size: 23px;
+    font-size:26px;
     color: #333333;
     line-height: 1.5;
     margin-top: 10px;
     padding-bottom: 13px;
+    font-weight: 200;
 }

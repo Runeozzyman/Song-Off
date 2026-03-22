@@ -9,7 +9,7 @@ import './component-css/App_Description.css';
            Every submission is tracked and the top 50 songs of the week are shown on the leaderboard.
            Show your favourite artists some love by supporting their music!
         </p>
-        
+        <p>Submissions resets every Sunday at midnight!</p>
 	  </div>
 	);
   }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {Link, useNavigate } from 'react-router-dom';
 import './component-css/Home.css';
-import { SlControlPlay } from "react-icons/sl";
+import { SlArrowRightCircle, SlControlPlay } from "react-icons/sl";
 import { getCurrentUser, getUsername } from '../services/userService';
 
 
@@ -15,7 +15,7 @@ import { getCurrentUser, getUsername } from '../services/userService';
       
       <h2 className="Description-title">Think you've got good Taste? Prove it.
         <Link to = "/login">
-        <button className = "play-button"><SlControlPlay  size={30}/></button>
+        <button className = "play-button"><SlArrowRightCircle  size={30}/></button>
         </Link>
       </h2>
       
