@@ -9,8 +9,6 @@ As of now, Song Off is accessible! I hosted the app using Render and Vercel, and
 # Tech Stack
 
 **Frontend**: React
-    - react-router-dom
-    - react-icons
 
 **Backend**: Node.js / Express , Supabase
 
